@@ -1,0 +1,58 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.kaisei-decol-regular {
+  font-family: "Kaisei Decol", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.dela-gothic-one-regular {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.menu {
+    display:flex;
+ }
+ 
+ .menu div{
+ 		text-align: center;
+ 		margin: 0 auto;
+ }
+ 
+ .men p{
+ 		margin-bottom: 20px;
+ }
+ 
+ .men p
+ 
+.pop {
+    color: #3d5155;
+    margin: 30px;
+    text-align: center;
+		font-family: "Kaisei Decol";
+} 
+
+.men{
+		font-family: "Kaisei Decol"
+}
+
+.midasi {
+    padding: 20px;
+    border-bottom: double 5px #045270;
+    text-align: center;
+    font-size: 18px;
+    color: #3d5155;
+		font-family: "Dela Gothic One";
+}
+
+img{
+	width: 55%;
+}
