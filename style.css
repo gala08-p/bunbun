@@ -66,7 +66,7 @@ img{
 	font-family: "Kaisei Decol";
 }
 
-.pops,.pans{
+.pops,.pans,.kakis{
 	flex: 1;
 	text-align: 20px;
 	box-sizing: border-box;
@@ -79,6 +79,11 @@ img{
 }
 
 .pops img{
+	max-width: 100%;
+	height: auto;
+}
+
+.kakis img{
 	max-width: 100%;
 	height: auto;
 }
