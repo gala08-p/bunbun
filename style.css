@@ -64,14 +64,14 @@ img{
 	height: 100vh
 }
 
-.pan men{
+.item{
 	flex: 1;
 	text-align: 20px;
 	box-sizing: border-box;
 	border: 1px solid ;
 }
 
-.pan men img{
+.item img{
 	max-width: 100%;
 	height: auto;
 }
