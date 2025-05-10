@@ -1,141 +1,176 @@
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* 基本リセット */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.kaisei-decol-regular {
+body {
+  background: linear-gradient(to bottom right, #fff5e1, #ffe0f0);
   font-family: "Kaisei Decol", serif;
-  font-weight: 400;
-  font-style: normal;
+  padding: 20px;
 }
 
-
-.dela-gothic-one-regular {
-  font-family: "Dela Gothic One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.menu {
-    display:flex;
- }
- 
- .menu div{
- 		text-align: center;
- 		margin: 0 auto;
- }
- 
- .menu p{
- 		margin-bottom: 20px;
- 		font-family: "Kaisei Decol";
- }
-
-.menu .item {
-      margin: 10px 0;
-    }
-
-    button {
-      margin: 30px auto;
-      display: block;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    /* オーバーレイ背景 */
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    /* ポップアップ */
-    .popup {
-      background-color: white;
-      padding: 20px 30px;
-      border-radius: 10px;
-      max-width: 80%;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      text-align: left;
-    }
-
-    .popup ul {
-      margin: 10px 0;
-      padding-left: 20px;
-    }
-
-    .close-btn {
-      margin-top: 15px;
-      display: block;
-      background: #f44336;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-    }
- 
- 
- 
-.pop {
-    color: #3d5155;
-    margin: 30px;
-    text-align: center;
-		font-family: "Kaisei Decol";
-} 
-
-.men{
-		font-family: "Kaisei Decol"
-}
-
+/* 見出し */
 .midasi {
-    padding: 20px;
-    border-bottom: double 5px #045270;
-    text-align: center;
-    font-size: 26px;
-    color: #3d5155;
-    font-family: "Dela Gothic One";
-}
-*/
-img{
-	width: 55%;
-}
-*/
-.menu{
-	display: flex;
-	justify-content: space-between;
-	width: 100%
-	height: 100vh
-	font-family: "Kaisei Decol";
+  padding: 20px;
+  border-bottom: double 5px #ff69b4;
+  text-align: center;
+  font-size: 30px;
+  color: #d6336c;
+  font-family: "Dela Gothic One", sans-serif;
+  background-color: #fff0f5;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.pops,.pans,.kakis{
-	flex: 1;
-	text-align: 20px;
-	box-sizing: border-box;
-	border-right: 1px solid ;
+/* セクション見出し */
+.pop h2 {
+  font-size: 26px;
+  color: #ff4081;
+  background-color: #ffe4ec;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  margin: 20px auto;
+  font-family: "Kaisei Decol", serif;
 }
 
-.pans img{
-	max-width: 100%;
-	height: auto;
+/* 商品リストエリア */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 20px;
 }
 
-.pops img{
-	max-width: 100%;
-	height: auto;
+/* 各商品カード */
+.pops, .pans, .kakis {
+  flex: 1 1 200px;
+  max-width: 250px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+  border: 2px dashed #ffb6c1;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.kakis img{
-	max-width: 100%;
-	height: auto;
+.pops:hover, .pans:hover, .kakis:hover {
+  transform: scale(1.05);
+}
+
+/* 商品名や価格 */
+.menu p {
+  margin-bottom: 10px;
+  font-family: "Kaisei Decol", serif;
+  font-size: 16px;
+}
+
+/* 商品画像 */
+img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+/* 数量入力欄 */
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 2px solid #ff69b4;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* 注文ボタン */
+button {
+  margin: 40px auto;
+  display: block;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e91e63;
+}
+
+/* ポップアップ背景 */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* ポップアップウィンドウ */
+.popup {
+  background-color: #fffafc;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+  max-width: 80%;
+  text-align: left;
+}
+
+/* ポップアップ内リスト */
+.popup ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+/* ポップアップ閉じるボタン */
+.close-btn {
+  margin-top: 15px;
+  display: block;
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* スマホ画面対応 */
+@media screen and (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pops, .pans, .kakis {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .midasi {
+    font-size: 24px;
+  }
+
+  .pop h2 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
 }
