@@ -110,12 +110,18 @@
 
  <button onclick="confirmOrder()">注文を確認</button>
 
-  <div class="result" id="result"></div>
+  <!-- ポップアップウィンドウ -->
+　　　　<div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+      <div id="popupContent"></div>
+      <button class="close-btn" onclick="closePopup()">閉じる</button>
+    </div>
+  </div>
 	
-  <script>
+    <script>
     function confirmOrder() {
       const inputs = document.querySelectorAll('input[type="number"]');
-      let resultArea = document.getElementById('result');
+      let popupContent = document.getElementById('popupContent');
       let list = '';
       let total = 0;
 
@@ -131,13 +137,18 @@
       });
 
       if (list) {
-        resultArea.innerHTML = `<ul>${list}</ul><p><strong>合計金額：${total}円</strong></p>`;
+        popupContent.innerHTML = `<ul>${list}</ul><p><strong>合計金額：${total}円</strong></p>`;
       } else {
-        resultArea.innerHTML = "<p>商品が選択されていません。</p>";
+        popupContent.innerHTML = "<p>商品が選択されていません。</p>";
       }
+
+      document.getElementById('overlay').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('overlay').style.display = 'none';
     }
   </script>
-
 
 </body>
 </html>
