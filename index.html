@@ -23,7 +23,11 @@
         <p>キャラメル</p>
         <img src="キャラメル.jpg"　class="pic_pop">
         <p>400円</p>
-	<input type="number" min="0" value="0" max="10" data-name="キャラメルポップコーン" data-price="400"　>
+	<div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="キャラメルポップコーン" data-price="400">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
 	</div>
 	</div>
 
@@ -31,7 +35,11 @@
         <p>塩</p>
         <img src="ソルト.jpg"　class="pic_pop">
         <p>400円</p>
-	<input type="number" min="0" value="0" max="10" data-name="塩ポップコーン" data-price="400" >
+	<div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="ソルトポップコーン" data-price="400">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
     </div>
     <div class="pop">
@@ -43,21 +51,33 @@
         <p>メープル</p>
         <img src="メープル.jpg"　class="pic_pan">
         <p>150円</p>
-        <input type="number" min="0" value="0" max="10" data-name="メープルパンケーキ" data-price="150" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="メープルパンケーキ" data-price="150">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
 
         <div class="pans">
         <p>チョコ</p>
         <img src="チョコ.jpg"　class="pic_pop">
         <p>150円</p>
-        <input type="number" min="0" value="0" max="10" data-name="チョコパンケーキ" data-price="150" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="チョコパンケーキ" data-price="150">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
 	
 	<div class="pans">
         <p>いちご</p>
         <img src="いちご.jpg"　class="pic_pop">
         <p>150円</p>
-        <input type="number" min="0" value="0" max="10"　 data-name="いちごパンケーキ" data-price="150" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="いちごパンケーキ" data-price="150">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
     </div>
     
@@ -69,21 +89,33 @@
         <p>ブルーハワイ</p>
         <img src="ブルーハワイ.jpg"　class="pic_pan">
         <p>400円</p>
-        <input type="number" min="0" value="0" max="10" data-name="ブルーハワイかき氷" data-price="400" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="ブルーハワイかき氷" data-price="400">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
 
         <div class="pans">
         <p>いちご</p>
         <img src="イチゴ.jpg"　class="pic_pop">
         <p>400円</p>
-        <input type="number" min="0" value="0" max="10" data-name="いちごかき氷" data-price="400" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="いちごパンケーキ" data-price="400">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
 	
 	<div class="pans">
         <p>コーラ</p>
         <img src="コーラ.jpg"　class="pic_pop">
         <p>400円</p>
-        <input type="number" min="0" value="0" max="10" data-name="コーラかき氷" data-price="400" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="コーラかき氷" data-price="400">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
     </div>
 　　<div class="menu">
@@ -91,21 +123,33 @@
         <p>グレープ</p>
         <img src="グレープ.jpg"　class="pic_pan">
         <p>400円</p>
-        <input type="number" min="0" value="0" max="10" data-name="グレープかき氷" data-price="400" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="グレープかき氷" data-price="400">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
 
         <div class="pans">
         <p>マンゴー</p>
         <img src="マンゴー.jpg"　class="pic_pop">
         <p>400円</p>
-        <input type="number" min="0" value="0" max="10" data-name="マンゴーかき氷" data-price="400" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="マンゴーかき氷" data-price="400">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
 	
 	<div class="pans">
         <p>メロン</p>
         <img src="メロン.jpg"　class="pic_pop">
         <p>400円</p>
-        <input type="number" min="0" value="0" max="10" data-name="メロンかき氷" data-price="400" >
+        <div class="qty-controls">
+        <button onclick="changeQty(this, -1)">−</button>
+        <input type="number" min="0" max="10" value="0" data-name="メロンかき氷" data-price="400">
+        <button onclick="changeQty(this, 1)">＋</button>
+	</div>
         </div>
     </div>
 
@@ -118,29 +162,33 @@
       <button class="close-btn" onclick="closePopup()">閉じる</button>
     </div>
   </div>
-	
-    <script>
-    
-	    
-	function confirmOrder() {
+	 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    // 注文確定処理
+    function confirmOrder() {
       const inputs = document.querySelectorAll('input[type="number"]');
-      let popupContent = document.getElementById('popupContent');
       let list = '';
       let total = 0;
+      let orderData = [];
 
       inputs.forEach(input => {
         const count = parseInt(input.value);
         const name = input.dataset.name;
         const price = parseInt(input.dataset.price);
-
         if (count > 0) {
           list += `<li>${name} × ${count}（${price * count}円）</li>`;
           total += price * count;
+          orderData.push({ name, count, price });
         }
       });
 
+      const popupContent = document.getElementById('popupContent');
+      const qrcodeEl = document.getElementById('qrcode');
+      qrcodeEl.innerHTML = '';
+
       if (list) {
         popupContent.innerHTML = `<ul>${list}</ul><p><strong>合計金額：${total}円</strong></p>`;
+        QRCode.toCanvas(qrcodeEl, JSON.stringify(orderData), { width: 200 });
       } else {
         popupContent.innerHTML = "<p>商品が選択されていません。</p>";
       }
@@ -148,9 +196,44 @@
       document.getElementById('overlay').style.display = 'flex';
     }
 
+    // ポップアップを閉じる
     function closePopup() {
       document.getElementById('overlay').style.display = 'none';
     }
+
+    // ＋／−ボタンの処理
+    function changeQty(button, delta) {
+      const input = button.parentElement.querySelector('input');
+      let value = parseInt(input.value) || 0;
+      value = Math.min(10, Math.max(0, value + delta));
+      input.value = value;
+      saveData();
+    }
+
+    // ローカル保存
+    function saveData() {
+      const data = {};
+      document.querySelectorAll('input[type="number"]').forEach(input => {
+        data[input.dataset.name] = input.value;
+      });
+      localStorage.setItem('orderData', JSON.stringify(data));
+    }
+
+    // 復元
+    function loadData() {
+      const data = JSON.parse(localStorage.getItem('orderData'));
+      if (data) {
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+          const name = input.dataset.name;
+          if (data[name] !== undefined) {
+            input.value = data[name];
+          }
+        });
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadData);
+    window.addEventListener('beforeunload', saveData);
   </script>
 
 </body>
