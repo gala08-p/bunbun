@@ -1,4 +1,4 @@
-/* 基本リセット */
+/* リセット */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +11,7 @@ body {
   padding: 20px;
 }
 
+/* 見出し */
 .midasi {
   padding: 20px;
   border-bottom: double 5px #ff69b4;
@@ -32,7 +33,6 @@ body {
   display: inline-block;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
   margin: 20px auto;
-  font-family: "Kaisei Decol", serif;
 }
 
 .menu {
@@ -61,7 +61,6 @@ body {
 
 .menu p {
   margin-bottom: 10px;
-  font-family: "Kaisei Decol", serif;
   font-size: 16px;
 }
 
@@ -72,8 +71,16 @@ img {
   transition: all 0.3s ease;
 }
 
-input[type="number"] {
-  width: 60px;
+/* 数量入力 */
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-control input[type="number"] {
+  width: 50px;
   padding: 5px;
   border: 2px solid #ff69b4;
   border-radius: 5px;
@@ -81,6 +88,21 @@ input[type="number"] {
   font-size: 16px;
 }
 
+.quantity-control button {
+  padding: 5px 10px;
+  font-size: 18px;
+  background-color: #ffc0cb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quantity-control button:hover {
+  background-color: #ff69b4;
+  color: white;
+}
+
+/* ボタン */
 button {
   margin: 40px auto;
   display: block;
@@ -99,6 +121,7 @@ button:hover {
   background-color: #e91e63;
 }
 
+/* ポップアップ */
 .overlay {
   position: fixed;
   top: 0; left: 0;
@@ -127,7 +150,6 @@ button:hover {
 
 .close-btn {
   margin-top: 15px;
-  display: block;
   background: #f44336;
   color: white;
   border: none;
@@ -137,6 +159,7 @@ button:hover {
   font-size: 14px;
 }
 
+/* レスポンシブ */
 @media screen and (max-width: 768px) {
   .menu {
     flex-direction: column;
