@@ -1,192 +1,128 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文化祭</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Decol&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>文化祭</title>
+    <meta name="description" content="文化祭">
+    <link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Decol&display=swap" rel="stylesheet">
 </head>
 <body>
+    <p class="midasi">商品一覧</p>
+    
+    <div class="pop">
+    <h2>ポップコーン</h2>
+    </div>
+    
+    <div class="menu">
+        <div class="pops">
+        <p>キャラメル</p>
+        <img src="キャラメル.jpg"　class="pic_pop">
+        <p>400円</p>
+	<input type="number" min="0" value="0" max="10" data-name="キャラメルポップコーン" data-price="400"　>
+	</div>
+	</div>
 
-  <p class="midasi">商品一覧</p>
+        <div class="pops">
+        <p>塩</p>
+        <img src="ソルト.jpg"　class="pic_pop">
+        <p>400円</p>
+	<input type="number" min="0" value="0" max="10" data-name="塩ポップコーン" data-price="400" >
+        </div>
+    </div>
+    <div class="pop">
+    <h2>パンケーキ</h2>
+    </div>
+    
+    <div class="menu">
+        <div class="pans">
+        <p>メープル</p>
+        <img src="メープル.jpg"　class="pic_pan">
+        <p>150円</p>
+        <input type="number" min="0" value="0" max="10" data-name="メープルパンケーキ" data-price="150" >
+        </div>
 
-  <!-- ポップコーン -->
-  <div class="pop"><h2>ポップコーン</h2></div>
-  <div class="menu">
-    <div class="pops">
-      <p>キャラメル</p>
-      <img src="キャラメル.jpg" class="pic_pop">
-      <p>400円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="キャラメルポップコーン" data-price="400">
-        <button class="plus">＋</button>
-      </div>
+        <div class="pans">
+        <p>チョコ</p>
+        <img src="チョコ.jpg"　class="pic_pop">
+        <p>150円</p>
+        <input type="number" min="0" value="0" max="10" data-name="チョコパンケーキ" data-price="150" >
+        </div>
+	
+	<div class="pans">
+        <p>いちご</p>
+        <img src="いちご.jpg"　class="pic_pop">
+        <p>150円</p>
+        <input type="number" min="0" value="0" max="10"　 data-name="いちごパンケーキ" data-price="150" >
+        </div>
     </div>
-    <div class="pops">
-      <p>塩</p>
-      <img src="ソルト.jpg" class="pic_pop">
-      <p>400円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="塩ポップコーン" data-price="400">
-        <button class="plus">＋</button>
-      </div>
+    
+    <div class="pop">
+    <h2>かき氷</h2>
     </div>
-  </div>
+    <div class="menu">
+        <div class="kakis">
+        <p>ブルーハワイ</p>
+        <img src="ブルーハワイ.jpg"　class="pic_pan">
+        <p>400円</p>
+        <input type="number" min="0" value="0" max="10" data-name="ブルーハワイかき氷" data-price="400" >
+        </div>
 
-  <!-- パンケーキ -->
-  <div class="pop"><h2>パンケーキ</h2></div>
-  <div class="menu">
-    <div class="pans">
-      <p>メープル</p>
-      <img src="メープル.jpg" class="pic_pan">
-      <p>150円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="メープルパンケーキ" data-price="150">
-        <button class="plus">＋</button>
-      </div>
+        <div class="pans">
+        <p>いちご</p>
+        <img src="イチゴ.jpg"　class="pic_pop">
+        <p>400円</p>
+        <input type="number" min="0" value="0" max="10" data-name="いちごかき氷" data-price="400" >
+        </div>
+	
+	<div class="pans">
+        <p>コーラ</p>
+        <img src="コーラ.jpg"　class="pic_pop">
+        <p>400円</p>
+        <input type="number" min="0" value="0" max="10" data-name="コーラかき氷" data-price="400" >
+        </div>
     </div>
-    <div class="pans">
-      <p>チョコ</p>
-      <img src="チョコ.jpg" class="pic_pop">
-      <p>150円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="チョコパンケーキ" data-price="150">
-        <button class="plus">＋</button>
-      </div>
-    </div>
-    <div class="pans">
-      <p>いちご</p>
-      <img src="いちご.jpg" class="pic_pop">
-      <p>150円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="いちごパンケーキ" data-price="150">
-        <button class="plus">＋</button>
-      </div>
-    </div>
-  </div>
+　　<div class="menu">
+        <div class="kakis">
+        <p>グレープ</p>
+        <img src="グレープ.jpg"　class="pic_pan">
+        <p>400円</p>
+        <input type="number" min="0" value="0" max="10" data-name="グレープかき氷" data-price="400" >
+        </div>
 
-  <!-- かき氷 -->
-  <div class="pop"><h2>かき氷</h2></div>
-  <div class="menu">
-    <div class="kakis">
-      <p>ブルーハワイ</p>
-      <img src="ブルーハワイ.jpg" class="pic_pan">
-      <p>400円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="ブルーハワイかき氷" data-price="400">
-        <button class="plus">＋</button>
-      </div>
+        <div class="pans">
+        <p>マンゴー</p>
+        <img src="マンゴー.jpg"　class="pic_pop">
+        <p>400円</p>
+        <input type="number" min="0" value="0" max="10" data-name="マンゴーかき氷" data-price="400" >
+        </div>
+	
+	<div class="pans">
+        <p>メロン</p>
+        <img src="メロン.jpg"　class="pic_pop">
+        <p>400円</p>
+        <input type="number" min="0" value="0" max="10" data-name="メロンかき氷" data-price="400" >
+        </div>
     </div>
-    <div class="pans">
-      <p>いちご</p>
-      <img src="イチゴ.jpg" class="pic_pop">
-      <p>400円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="いちごかき氷" data-price="400">
-        <button class="plus">＋</button>
-      </div>
-    </div>
-    <div class="pans">
-      <p>コーラ</p>
-      <img src="コーラ.jpg" class="pic_pop">
-      <p>400円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="コーラかき氷" data-price="400">
-        <button class="plus">＋</button>
-      </div>
-    </div>
-  </div>
-  <div class="menu">
-    <div class="kakis">
-      <p>グレープ</p>
-      <img src="グレープ.jpg" class="pic_pan">
-      <p>400円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="グレープかき氷" data-price="400">
-        <button class="plus">＋</button>
-      </div>
-    </div>
-    <div class="pans">
-      <p>マンゴー</p>
-      <img src="マンゴー.jpg" class="pic_pop">
-      <p>400円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="マンゴーかき氷" data-price="400">
-        <button class="plus">＋</button>
-      </div>
-    </div>
-    <div class="pans">
-      <p>メロン</p>
-      <img src="メロン.jpg" class="pic_pop">
-      <p>400円</p>
-      <div class="quantity-control">
-        <button class="minus">−</button>
-        <input type="number" min="0" value="0" max="10" data-name="メロンかき氷" data-price="400">
-        <button class="plus">＋</button>
-      </div>
-    </div>
-  </div>
 
-  <button onclick="confirmOrder()">注文を確認</button>
+ <button onclick="confirmOrder()">注文を確認</button>
 
-  <!-- ポップアップ -->
-  <div class="overlay" id="overlay">
+  <!-- ポップアップウィンドウ -->
+　　　　<div class="overlay" id="overlay">
     <div class="popup" id="popup">
       <div id="popupContent"></div>
       <button class="close-btn" onclick="closePopup()">閉じる</button>
     </div>
   </div>
-
-  <script>
-    document.querySelectorAll('.plus').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const input = btn.previousElementSibling;
-        const max = parseInt(input.max);
-        if (parseInt(input.value) < max) input.value = parseInt(input.value) + 1;
-        saveQuantities();
-      });
-    });
-
-    document.querySelectorAll('.minus').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const input = btn.nextElementSibling;
-        if (parseInt(input.value) > 0) input.value = parseInt(input.value) - 1;
-        saveQuantities();
-      });
-    });
-
-    document.querySelectorAll('input[type="number"]').forEach(input => {
-      input.addEventListener('input', saveQuantities);
-    });
-
-    function saveQuantities() {
-      const data = {};
-      document.querySelectorAll('input[type="number"]').forEach(input => {
-        data[input.dataset.name] = input.value;
-      });
-      localStorage.setItem('quantities', JSON.stringify(data));
-    }
-
-    function loadQuantities() {
-      const data = JSON.parse(localStorage.getItem('quantities') || '{}');
-      document.querySelectorAll('input[type="number"]').forEach(input => {
-        const name = input.dataset.name;
-        if (data[name] !== undefined) input.value = data[name];
-      });
-    }
-
-    function confirmOrder() {
+	
+    <script>
+    
+	    
+	function confirmOrder() {
       const inputs = document.querySelectorAll('input[type="number"]');
       let popupContent = document.getElementById('popupContent');
       let list = '';
@@ -196,22 +132,25 @@
         const count = parseInt(input.value);
         const name = input.dataset.name;
         const price = parseInt(input.dataset.price);
+
         if (count > 0) {
           list += `<li>${name} × ${count}（${price * count}円）</li>`;
           total += price * count;
         }
       });
 
-      popupContent.innerHTML = list ? `<ul>${list}</ul><p><strong>合計金額：${total}円</strong></p>` : "<p>商品が選択されていません。</p>";
+      if (list) {
+        popupContent.innerHTML = `<ul>${list}</ul><p><strong>合計金額：${total}円</strong></p>`;
+      } else {
+        popupContent.innerHTML = "<p>商品が選択されていません。</p>";
+      }
+
       document.getElementById('overlay').style.display = 'flex';
     }
 
     function closePopup() {
       document.getElementById('overlay').style.display = 'none';
     }
-
-    // 初期読み込み
-    loadQuantities();
   </script>
 
 </body>
