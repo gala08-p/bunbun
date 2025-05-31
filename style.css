@@ -1,17 +1,13 @@
-/* 基本リセット */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 body {
   background: linear-gradient(to bottom right, #fff5e1, #ffe0f0);
   font-family: "Kaisei Decol", serif;
   padding: 20px;
 }
-
-/* 見出し */
 .midasi {
   padding: 20px;
   border-bottom: double 5px #ff69b4;
@@ -23,21 +19,6 @@ body {
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-
-/* セクション見出し */
-.pop h2 {
-  font-size: 26px;
-  color: #ff4081;
-  background-color: #ffe4ec;
-  padding: 10px;
-  border-radius: 10px;
-  display: inline-block;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
-  margin: 20px auto;
-  font-family: "Kaisei Decol", serif;
-}
-
-/* 商品リストエリア */
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -45,8 +26,6 @@ body {
   margin: 20px 0;
   gap: 20px;
 }
-
-/* 各商品カード */
 .pops, .pans, .kakis {
   flex: 1 1 200px;
   max-width: 250px;
@@ -56,40 +35,38 @@ body {
   box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
   border: 2px dashed #ffb6c1;
   text-align: center;
-  transition: transform 0.3s ease;
 }
-
-.pops:hover, .pans:hover, .kakis:hover {
-  transform: scale(1.05);
-}
-
-/* 商品名や価格 */
 .menu p {
   margin-bottom: 10px;
-  font-family: "Kaisei Decol", serif;
-  font-size: 16px;
 }
-
-/* 商品画像 */
 img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
-  transition: all 0.3s ease;
 }
-
-/* 数量入力欄 */
-input[type="number"] {
-  width: 60px;
-  padding: 5px;
-  border: 2px solid #ff69b4;
+.qty-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.qty-controls button {
+  padding: 6px 12px;
+  font-size: 16px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
+}
+.qty-controls input {
+  width: 40px;
   text-align: center;
   font-size: 16px;
+  border: 2px solid #ff69b4;
+  border-radius: 5px;
 }
-
-/* 注文ボタン */
-button {
+button.confirm {
   margin: 40px auto;
   display: block;
   padding: 12px 24px;
@@ -100,27 +77,20 @@ button {
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
 }
-
-button:hover {
+button.confirm:hover {
   background-color: #e91e63;
 }
-
-/* ポップアップ背景 */
 .overlay {
   position: fixed;
   top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
-
-/* ポップアップウィンドウ */
 .popup {
   background-color: #fffafc;
   padding: 20px 30px;
@@ -129,14 +99,10 @@ button:hover {
   max-width: 80%;
   text-align: left;
 }
-
-/* ポップアップ内リスト */
 .popup ul {
   margin: 10px 0;
   padding-left: 20px;
 }
-
-/* ポップアップ閉じるボタン */
 .close-btn {
   margin-top: 15px;
   display: block;
@@ -146,38 +112,20 @@ button:hover {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
 }
-
-.container {
-  width: 300px;
-  margin: 200px auto 0;
+#qrcode {
+  margin-top: 20px;
+  text-align: center;
 }
-
-
-
-/* スマホ画面対応 */
 @media screen and (max-width: 768px) {
   .menu {
     flex-direction: column;
     align-items: center;
   }
-
   .pops, .pans, .kakis {
     max-width: 90%;
-    width: 90%;
   }
-
   .midasi {
     font-size: 24px;
-  }
-
-  .pop h2 {
-    font-size: 22px;
-  }
-
-  button {
-    font-size: 16px;
-    padding: 10px 20px;
   }
 }
