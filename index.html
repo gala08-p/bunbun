@@ -254,6 +254,7 @@
     <div class="overlay" id="overlay">
       <div class="popup" id="popup">
         <div id="popupContent"></div>
+        <button class="confirm-btn" onclick="submitOrder()">確定</button>
         <button class="close-btn" onclick="closePopup()">閉じる</button>
       </div>
     </div>
@@ -344,7 +345,35 @@
     document.getElementById("overlay").style.display = "none";
   }
 
-  // 入力変更時に保存
+  function submitOrder() {
+  let data = {};
+  let total = 0;
+
+  document.querySelectorAll('input[type="number"]').forEach(input => {
+    const name = input.dataset.name;
+    const price = parseInt(input.dataset.price);
+    const count = parseInt(input.value);
+    if (count > 0) {
+      data[name] = count;
+      total += count * price;
+    }
+  });
+
+  data["合計金額"] = total;
+
+  fetch("https://script.google.com/macros/s/AKfycbxVWs8uR40aO-LbjXtrj471GS7_YS3psAgOCYALq7HXwMfsnswr-5Oqdcpb1HGgwqtC/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  }).then(res => {
+    alert("注文をスプレッドシートに送信しました！");
+    closePopup();
+  }).catch(err => {
+    alert("送信に失敗しました。");
+  });
+}
+
+        // 入力変更時に保存
   document.querySelectorAll('input[type="number"]').forEach((input) => {
     input.addEventListener("input", () => {
       if (input.value < 0) input.value = 0;
