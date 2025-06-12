@@ -197,11 +197,10 @@
 
     <script>
       const STORAGE_KEY = "orderQuantities";
-      // Google Apps ScriptのウェブアプリURLをここに設定
-      const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"; // デプロイ後に取得したURLをここに貼り付け
 
       // 初期化（保存データ復元）
       window.addEventListener("DOMContentLoaded", () => {
+        console.log("ページ読み込み完了");
         const savedData = localStorage.getItem(STORAGE_KEY);
         if (savedData) {
           const quantities = JSON.parse(savedData);
@@ -223,33 +222,40 @@
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
       }
 
-      // +, -, リセットボタン
+      // ＋ボタン
       document.querySelectorAll(".plus-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
+          console.log("＋ボタンクリック");
           const input = btn.parentElement.querySelector("input");
           input.value = Math.min(10, Number(input.value) + 1);
           saveToStorage();
         });
       });
 
+      // −ボタン
       document.querySelectorAll(".minus-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
+          console.log("−ボタンクリック");
           const input = btn.parentElement.querySelector("input");
           input.value = Math.max(0, Number(input.value) - 1);
           saveToStorage();
         });
       });
 
+      // リセットボタン
       document.querySelectorAll(".reset-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
+          console.log("リセットボタンクリック");
           const input = btn.previousElementSibling.querySelector("input");
           input.value = 0;
           saveToStorage();
         });
       });
 
+      // 数量入力欄の直接入力
       document.querySelectorAll('input[type="number"]').forEach((input) => {
         input.addEventListener("input", () => {
+          console.log("数量入力変更");
           if (input.value < 0) input.value = 0;
           if (input.value > 10) input.value = 10;
           saveToStorage();
@@ -258,6 +264,7 @@
 
       // 注文確認
       function confirmOrder() {
+        console.log("注文確認ボタンクリック");
         const items = [];
         let total = 0;
         document.querySelectorAll('input[type="number"]').forEach((input) => {
@@ -284,8 +291,19 @@
         document.getElementById("overlay").style.display = "flex";
       }
 
-      // スプレッドシートに送信
-      async function submitOrder() {
+      // 確定ボタン（スプレッドシート送信をコメントアウト）
+      function submitOrder() {
+        console.log("確定ボタンクリック");
+        alert("注文が確定しました（スプレッドシート送信は無効化中）");
+        // 数量リセット
+        document.querySelectorAll('input[type="number"]').forEach((input) => {
+          input.value = 0;
+        });
+        saveToStorage();
+        closePopup();
+        
+        /*
+        // Googleスプレッドシート送信機能（再統合時に有効化）
         const orderData = {
           "キャラメルポップコーン": 0,
           "塩ポップコーン": 0,
@@ -307,7 +325,7 @@
         });
 
         try {
-          const response = await fetch(https://script.google.com/macros/s/AKfycbwAts1Uoj3-GM427vjL5f0-Rb987OOz8r2aZWEVnsBBfZmYQTFRgB0QDL2o-T_ScTk/exec, {
+          const response = await fetch(SCRIPT_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(orderData)
@@ -327,9 +345,12 @@
         } catch (error) {
           alert("エラーが発生しました: " + error.message);
         }
+        */
       }
 
+      // ポップアップ閉じる
       function closePopup() {
+        console.log("閉じるボタンクリック");
         document.getElementById("overlay").style.display = "none";
       }
     </script>
