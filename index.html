@@ -6,16 +6,9 @@
   <link rel="stylesheet" href="style.css" type="text/css" />
   <title>文化祭</title>
   <meta name="description" content="文化祭" />
-  <link
-    rel="stylesheet"
-    href="style.css"
-  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Decol&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Decol&display=swap" rel="stylesheet" />
 </head>
 <body>
   <p class="midasi">商品一覧</p>
@@ -29,14 +22,21 @@
       <p>キャラメル</p>
       <img src="キャラメル.jpg" class="pic_pop" />
       <p>400円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="キャラメルポップコーン"
-        data-price="400"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="キャラメルポップコーン"
+            data-price="400"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
   </div>
 
@@ -45,14 +45,21 @@
       <p>塩</p>
       <img src="ソルト.jpg" class="pic_pop" />
       <p>400円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="塩ポップコーン"
-        data-price="400"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="塩ポップコーン"
+            data-price="400"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
   </div>
 
@@ -65,90 +72,131 @@
       <p>メープル</p>
       <img src="メープル.jpg" class="pic_pan" />
       <p>150円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="メープルパンケーキ"
-        data-price="150"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="メープルパンケーキ"
+            data-price="150"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
 
     <div class="pans">
       <p>チョコ</p>
       <img src="チョコ.jpg" class="pic_pop" />
       <p>150円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="チョコパンケーキ"
-        data-price="150"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="チョコパンケーキ"
+            data-price="150"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
 
     <div class="pans">
       <p>いちご</p>
       <img src="いちご.jpg" class="pic_pop" />
       <p>150円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="いちごパンケーキ"
-        data-price="150"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="いちごパンケーキ"
+            data-price="150"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
   </div>
 
   <div class="pop">
     <h2>かき氷</h2>
   </div>
-
   <div class="menu">
     <div class="kakis">
       <p>ブルーハワイ</p>
       <img src="ブルーハワイ.jpg" class="pic_pan" />
       <p>400円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="ブルーハワイかき氷"
-        data-price="400"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="ブルーハワイかき氷"
+            data-price="400"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
 
     <div class="pans">
       <p>いちご</p>
       <img src="イチゴ.jpg" class="pic_pop" />
       <p>400円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="いちごかき氷"
-        data-price="400"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="いちごかき氷"
+            data-price="400"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
 
     <div class="pans">
       <p>コーラ</p>
       <img src="コーラ.jpg" class="pic_pop" />
       <p>400円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="コーラかき氷"
-        data-price="400"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="コーラかき氷"
+            data-price="400"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
   </div>
 
@@ -157,42 +205,63 @@
       <p>グレープ</p>
       <img src="グレープ.jpg" class="pic_pan" />
       <p>400円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="グレープかき氷"
-        data-price="400"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="グレープかき氷"
+            data-price="400"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
 
     <div class="pans">
       <p>マンゴー</p>
       <img src="マンゴー.jpg" class="pic_pop" />
       <p>400円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="マンゴーかき氷"
-        data-price="400"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="マンゴーかき氷"
+            data-price="400"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
 
     <div class="pans">
       <p>メロン</p>
       <img src="メロン.jpg" class="pic_pop" />
       <p>400円</p>
-      <input
-        type="number"
-        min="0"
-        value="0"
-        max="10"
-        data-name="メロンかき氷"
-        data-price="400"
-      />
+      <div class="quantity-wrapper">
+        <div class="quantity-row">
+          <input
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            data-name="メロンかき氷"
+            data-price="400"
+          />
+          <button class="qty-btn plus">+</button>
+          <button class="qty-btn minus">−</button>
+        </div>
+        <button class="reset-btn">リセット</button>
+      </div>
     </div>
   </div>
 
@@ -201,111 +270,108 @@
   <!-- ポップアップウィンドウ -->
   <div class="overlay" id="overlay">
     <div class="popup" id="popup">
-      <div id="popupContent"></div>
+      <h3>注文内容</h3>
+      <ul id="orderList"></ul>
       <button class="close-btn" onclick="closePopup()">閉じる</button>
     </div>
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const inputs = document.querySelectorAll('input[type="number"]');
+    const maxQuantity = 99;
 
-      inputs.forEach((input) => {
-        const wrapper = document.createElement("div");
-        wrapper.className = "quantity-wrapper";
+    // 保存・復元のキー名
+    const STORAGE_KEY = "bunkaisai_order";
 
-        const row = document.createElement("div");
-        row.className = "quantity-row";
-
-        const plusBtn = document.createElement("button");
-        plusBtn.className = "qty-btn plus";
-        plusBtn.textContent = "＋";
-
-        const minusBtn = document.createElement("button");
-        minusBtn.className = "qty-btn minus";
-        minusBtn.textContent = "−";
-
-        const resetBtn = document.createElement("button");
-        resetBtn.className = "reset-btn";
-        resetBtn.textContent = "リセット";
-
-        const parent = input.parentNode;
-        parent.replaceChild(wrapper, input);
-        row.appendChild(input);
-        row.appendChild(plusBtn);
-        row.appendChild(minusBtn);
-        wrapper.appendChild(row);
-        wrapper.appendChild(resetBtn);
-
-        // ローカルストレージ復元
-        const key = input.dataset.name;
-        const savedValue = localStorage.getItem(key);
-        if (savedValue !== null) {
-          input.value = savedValue;
+    // ページ読み込み時にローカルストレージから復元
+    window.onload = () => {
+      document.querySelectorAll('input[type="number"]').forEach((input) => {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const data = JSON.parse(saved);
+          if (data[input.dataset.name] !== undefined) {
+            input.value = data[input.dataset.name];
+          }
         }
+      });
+    };
 
-        plusBtn.addEventListener("click", () => {
-          if (parseInt(input.value) < parseInt(input.max)) {
-            input.value = parseInt(input.value) + 1;
-            localStorage.setItem(key, input.value);
-          }
-        });
+    // プラス・マイナス・リセットボタンの動作設定
+    document.querySelectorAll(".quantity-wrapper").forEach((wrapper) => {
+      const input = wrapper.querySelector('input[type="number"]');
+      const plusBtn = wrapper.querySelector(".plus");
+      const minusBtn = wrapper.querySelector(".minus");
+      const resetBtn = wrapper.querySelector(".reset-btn");
 
-        minusBtn.addEventListener("click", () => {
-          if (parseInt(input.value) > parseInt(input.min)) {
-            input.value = parseInt(input.value) - 1;
-            localStorage.setItem(key, input.value);
-          }
-        });
+      plusBtn.addEventListener("click", () => {
+        let val = parseInt(input.value);
+        if (val < maxQuantity) {
+          input.value = val + 1;
+          saveOrder();
+        }
+      });
 
-        resetBtn.addEventListener("click", () => {
-          input.value = 0;
-          localStorage.setItem(key, 0);
-        });
+      minusBtn.addEventListener("click", () => {
+        let val = parseInt(input.value);
+        if (val > 0) {
+          input.value = val - 1;
+          saveOrder();
+        }
+      });
 
-        input.addEventListener("input", () => {
-          let val = parseInt(input.value);
-          if (isNaN(val) || val < parseInt(input.min)) {
-            val = parseInt(input.min);
-          } else if (val > parseInt(input.max)) {
-            val = parseInt(input.max);
-          }
-          input.value = val;
-          localStorage.setItem(key, val);
-        });
+      resetBtn.addEventListener("click", () => {
+        input.value = 0;
+        saveOrder();
+      });
+
+      // 数値直接入力時も保存
+      input.addEventListener("change", () => {
+        let val = parseInt(input.value);
+        if (isNaN(val) || val < 0) val = 0;
+        if (val > maxQuantity) val = maxQuantity;
+        input.value = val;
+        saveOrder();
       });
     });
 
+    // ローカルストレージに保存
+    function saveOrder() {
+      const orderData = {};
+      document.querySelectorAll('input[type="number"]').forEach((input) => {
+        orderData[input.dataset.name] = Number(input.value);
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(orderData));
+    }
+
+    // 注文確認のポップアップ表示
     function confirmOrder() {
-      const inputs = document.querySelectorAll('input[type="number"]');
-      let popupContent = document.getElementById("popupContent");
-      let list = "";
-      let total = 0;
+      const orderList = document.getElementById("orderList");
+      orderList.innerHTML = "";
+      let hasOrder = false;
 
-      inputs.forEach((input) => {
-        const count = parseInt(input.value);
-        const name = input.dataset.name;
-        const price = parseInt(input.dataset.price);
-
-        if (count > 0) {
-          list += `<li>${name} × ${count}（${price * count}円）</li>`;
-          total += price * count;
+      document.querySelectorAll('input[type="number"]').forEach((input) => {
+        const qty = Number(input.value);
+        if (qty > 0) {
+          hasOrder = true;
+          const name = input.dataset.name;
+          const price = input.dataset.price;
+          const li = document.createElement("li");
+          li.textContent = `${name} × ${qty} 個  (¥${price} × ${qty} = ¥${price * qty})`;
+          orderList.appendChild(li);
         }
       });
 
-      if (list) {
-        popupContent.innerHTML = `<ul>${list}</ul><p><strong>合計金額：${total}円</strong></p>`;
-      } else {
-        popupContent.innerHTML = "<p>商品が選択されていません。</p>";
+      if (!hasOrder) {
+        orderList.innerHTML = "<li>注文がありません。</li>";
       }
 
+      // ポップアップ表示
       document.getElementById("overlay").style.display = "flex";
     }
 
+    // ポップアップ閉じる
     function closePopup() {
       document.getElementById("overlay").style.display = "none";
     }
   </script>
 </body>
 </html>
-
