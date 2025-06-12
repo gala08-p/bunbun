@@ -21,7 +21,7 @@ body {
   font-family: "Dela Gothic One", sans-serif;
   background-color: #fff0f5;
   margin-bottom: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* セクション見出し */
@@ -29,195 +29,184 @@ body {
   font-size: 26px;
   color: #ff4081;
   background-color: #ffe4ec;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
   display: inline-block;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
-  margin: 20px auto;
-  font-family: "Kaisei Decol", serif;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
 }
 
-/* 商品リストエリア */
+/* 商品グループ全体 */
 .menu {
+  margin-bottom: 25px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
   gap: 20px;
+  justify-content: start;
 }
 
-/* 各商品カード */
+/* ポップコーン */
 .pops, .pans, .kakis {
-  flex: 1 1 200px;
-  max-width: 250px;
-  background-color: #fff;
-  border-radius: 10px;
+  background: #fff0f5;
   padding: 15px;
-  box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
-  border: 2px dashed #ffb6c1;
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px rgba(255, 105, 180, 0.4);
+  width: 180px;
   text-align: center;
-  transition: transform 0.3s ease;
+  font-weight: bold;
+  color: #d6336c;
+  font-family: "Dela Gothic One", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.pops:hover, .pans:hover, .kakis:hover {
-  transform: scale(1.05);
+/* 画像 */
+.pic_pop, .pic_pan {
+  width: 130px;
+  height: 130px;
+  border-radius: 15px;
+  margin: 10px 0;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
 }
 
-/* 商品名や価格 */
-.menu p {
-  margin-bottom: 10px;
-  font-family: "Kaisei Decol", serif;
-  font-size: 16px;
+/* 価格表示 */
+.pops p:nth-child(3),
+.pans p:nth-child(3),
+.kakis p:nth-child(3) {
+  font-size: 18px;
+  color: #b22222;
+  margin: 5px 0 10px 0;
 }
 
-/* 商品画像 */
-img {
+/* 数量入力＋ボタン横並び */
+.quantity-wrapper {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
 }
 
-/* 数量入力欄 */
+.quantity-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
 input[type="number"] {
   width: 60px;
-  padding: 5px;
-  border: 2px solid #ff69b4;
-  border-radius: 5px;
-  text-align: center;
+  padding: 6px 8px;
   font-size: 16px;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  text-align: center;
+  -moz-appearance: textfield;
 }
 
-/* 注文ボタン */
-button {
-  margin: 40px auto;
-  display: block;
-  padding: 12px 24px;
-  font-size: 18px;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qty-btn {
   background-color: #ff69b4;
-  color: white;
   border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px 14px;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.qty-btn:hover {
+  background-color: #d6336c;
+}
+
+.reset-btn {
+  margin-top: 6px;
+  width: 100%;
+  background-color: #ff1493;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-btn:hover {
+  background-color: #a8006e;
+}
+
+/* 注文確認ボタン */
+button {
+  display: block;
+  margin: 0 auto 30px auto;
+  background-color: #d6336c;
+  color: white;
+  font-size: 20px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: "Dela Gothic One", sans-serif;
+  box-shadow: 2px 2px 12px rgba(255, 20, 147, 0.7);
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #e91e63;
+  background-color: #b22222;
 }
 
-/* ポップアップ背景 */
+/* ポップアップ用 */
 .overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
 
-/* ポップアップウィンドウ */
 .popup {
-  background-color: #fffafc;
+  background: #fff0f5;
   padding: 20px 30px;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-  max-width: 80%;
-  text-align: left;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 20px #ff69b4;
+  color: #d6336c;
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 18px;
 }
 
-/* ポップアップ内リスト */
-.popup ul {
-  margin: 10px 0;
-  padding-left: 20px;
-}
-
-/* ポップアップ閉じるボタン */
 .close-btn {
   margin-top: 15px;
-  display: block;
-  background: #f44336;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.container {
-  width: 300px;
-  margin: 200px auto 0;
-}
-
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  margin-top: 10px;
-}
-
-.input-wrapper input[type="number"] {
-  margin-bottom: 5px;
-}
-
-.small-btn {
-  font-size: 14px;
-  padding: 4px 8px;
-  margin: 2px;
-  background-color: #ffb6c1;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 50px;
-}
-
-.small-btn:hover {
   background-color: #ff69b4;
-  color: #fff;
-}
-
-.reset-btn {
-  font-size: 12px;
-  padding: 3px 10px;
-  background-color: #ddd;
   border: none;
-  border-radius: 5px;
+  color: white;
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
-.reset-btn:hover {
-  background-color: #bbb;
+.close-btn:hover {
+  background-color: #b22222;
 }
 
-
-/* スマホ画面対応 */
-@media screen and (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .pops, .pans, .kakis {
-    max-width: 90%;
-    width: 90%;
-  }
-
-  .midasi {
-    font-size: 24px;
-  }
-
-  .pop h2 {
-    font-size: 22px;
-  }
-
-  button {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
+.popup ul {
+  list-style: inside disc;
+  margin-bottom: 15px;
+  padding-left: 10px;
 }
