@@ -197,6 +197,8 @@
 
     <script>
       const STORAGE_KEY = "orderQuantities";
+      // Google Apps ScriptのウェブアプリURL（デプロイ後に設定）
+      const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"; // ここにウェブアプリのURLを入力
 
       // 初期化（保存データ復元）
       window.addEventListener("DOMContentLoaded", () => {
@@ -215,6 +217,7 @@
 
       // 保存関数
       function saveToStorage() {
+        console.log("ローカルストレージに保存");
         const data = {};
         document.querySelectorAll('input[type="number"]').forEach((input) => {
           data[input.dataset.name] = Number(input.value);
@@ -291,46 +294,45 @@
         document.getElementById("overlay").style.display = "flex";
       }
 
-      // 確定ボタン（スプレッドシート送信をコメントアウト）
-      function submitOrder() {
+      // スプレッドシートに送信
+      async function submitOrder() {
         console.log("確定ボタンクリック");
-        alert("注文が確定しました（スプレッドシート送信は無効化中）");
-        // 数量リセット
-        document.querySelectorAll('input[type="number"]').forEach((input) => {
-          input.value = 0;
-        });
-        saveToStorage();
-        closePopup();
-        
-        
-        // Googleスプレッドシート送信機能（再統合時に有効化）
-        const orderData = {
-          "キャラメルポップコーン": 0,
-          "塩ポップコーン": 0,
-          "ブルーハワイかき氷": 0,
-          "いちごかき氷": 0,
-          "コーラかき氷": 0,
-          "グレープかき氷": 0,
-          "マンゴーかき氷": 0,
-          "メロンかき氷": 0,
-          total: 0
-        };
-
-        document.querySelectorAll('input[type="number"]').forEach((input) => {
-          const qty = Number(input.value);
-          const name = input.dataset.name;
-          const price = Number(input.dataset.price);
-          orderData[name] = qty;
-          orderData.total += qty * price;
-        });
-
         try {
+          const orderData = {
+            "キャラメルポップコーン": 0,
+            "塩ポップコーン": 0,
+            "ブルーハワイかき氷": 0,
+            "いちごかき氷": 0,
+            "コーラかき氷": 0,
+            "グレープかき氷": 0,
+            "マンゴーかき氷": 0,
+            "メロンかき氷": 0,
+            total: 0
+          };
+
+          document.querySelectorAll('input[type="number"]').forEach((input) => {
+            const qty = Number(input.value);
+            const name = input.dataset.name;
+            const price = Number(input.dataset.price);
+            orderData[name] = qty;
+            orderData.total += qty * price;
+          });
+
+          if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+            throw new Error("SCRIPT_URLが設定されていません。Google Apps ScriptのウェブアプリURLを設定してください。");
+          }
+
+          console.log("スプレッドシートに送信開始", orderData);
           const response = await fetch(SCRIPT_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(orderData)
+            body: JSON.stringify(orderData),
+            mode: "cors" // CORSモード明示
           });
+
           const result = await response.json();
+          console.log("スプレッドシート送信結果", result);
+
           if (result.status === "success") {
             alert("注文が正常に送信されました！");
             // 注文送信後に数量をリセット
@@ -343,9 +345,15 @@
             alert("注文の送信に失敗しました: " + result.message);
           }
         } catch (error) {
-          alert("エラーが発生しました: " + error.message);
+          console.error("スプレッドシート送信エラー", error);
+          alert("スプレッドシートへの送信に失敗しました: " + error.message + "\n他の機能は引き続き使用可能です。");
+          // エラー時も数量リセットとポップアップ閉じるは実行
+          document.querySelectorAll('input[type="number"]').forEach((input) => {
+            input.value = 0;
+          });
+          saveToStorage();
+          closePopup();
         }
-        
       }
 
       // ポップアップ閉じる
