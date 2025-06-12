@@ -34,6 +34,7 @@ body {
   display: inline-block;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
+  font-family: "Kaisei Decol", serif;
 }
 
 /* 商品グループ全体 */
@@ -45,7 +46,7 @@ body {
   justify-content: start;
 }
 
-/* ポップコーン */
+/* 商品カード */
 .pops, .pans, .kakis {
   background: #fff0f5;
   padding: 15px;
@@ -53,15 +54,14 @@ body {
   box-shadow: 2px 2px 12px rgba(255, 105, 180, 0.4);
   width: 180px;
   text-align: center;
-  font-weight: bold;
+  font-family: "Kaisei Decol", serif;
   color: #d6336c;
-  font-family: "Dela Gothic One", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* 画像 */
+/* 商品画像 */
 .pic_pop, .pic_pan {
   width: 130px;
   height: 130px;
@@ -80,18 +80,20 @@ body {
   margin: 5px 0 10px 0;
 }
 
-/* 数量入力＋ボタン横並び */
+/* 数量入力＋ボタンのラッパー */
 .quantity-wrapper {
   width: 100%;
 }
 
+/* 数量入力＋ボタンの横並び中央揃え */
 .quantity-row {
   display: flex;
-  justify-content: center;
+  justify-content: center;  /* 中央揃え */
   align-items: center;
   gap: 8px;
 }
 
+/* 数量入力欄 */
 input[type="number"] {
   width: 60px;
   padding: 6px 8px;
@@ -108,6 +110,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+/* + - ボタン */
 .qty-btn {
   background-color: #ff69b4;
   border: none;
@@ -125,6 +128,7 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: #d6336c;
 }
 
+/* リセットボタン（数量入力欄の下、全幅） */
 .reset-btn {
   margin-top: 6px;
   width: 100%;
@@ -153,7 +157,7 @@ button {
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  font-family: "Dela Gothic One", sans-serif;
+  font-family: "Kaisei Decol", serif;
   box-shadow: 2px 2px 12px rgba(255, 20, 147, 0.7);
   transition: background-color 0.3s ease;
 }
@@ -162,7 +166,7 @@ button:hover {
   background-color: #b22222;
 }
 
-/* ポップアップ用 */
+/* ポップアップ用オーバーレイ */
 .overlay {
   position: fixed;
   display: none;
@@ -176,6 +180,7 @@ button:hover {
   z-index: 999;
 }
 
+/* ポップアップウィンドウ */
 .popup {
   background: #fff0f5;
   padding: 20px 30px;
@@ -184,10 +189,11 @@ button:hover {
   width: 90%;
   box-shadow: 0 0 20px #ff69b4;
   color: #d6336c;
-  font-family: "Dela Gothic One", sans-serif;
+  font-family: "Kaisei Decol", serif;
   font-size: 18px;
 }
 
+/* 閉じるボタン */
 .close-btn {
   margin-top: 15px;
   background-color: #ff69b4;
@@ -205,8 +211,35 @@ button:hover {
   background-color: #b22222;
 }
 
+/* ポップアップ内のリストスタイル */
 .popup ul {
   list-style: inside disc;
   margin-bottom: 15px;
   padding-left: 10px;
+}
+
+/* スマホ画面対応 */
+@media screen and (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pops, .pans, .kakis {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  .midasi {
+    font-size: 24px;
+  }
+
+  .pop h2 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
 }
