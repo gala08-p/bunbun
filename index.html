@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <title>文化祭</title>
-    <meta name="description" content="文化祭">
-    <link rel="stylesheet" href="style.css">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Decol&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>文化祭</title>
+  <meta name="description" content="文化祭" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Decol&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <p class="midasi">商品一覧</p>
+  <p class="midasi">商品一覧</p>
     
     <div class="pop">
     <h2>ポップコーン</h2>
@@ -111,18 +110,71 @@
 
  <button onclick="confirmOrder()">注文を確認</button>
 
-  <!-- ポップアップウィンドウ -->
-　　　　<div class="overlay" id="overlay">
+  <!-- ポップアップ -->
+  <div class="overlay" id="overlay">
     <div class="popup" id="popup">
       <div id="popupContent"></div>
       <button class="close-btn" onclick="closePopup()">閉じる</button>
     </div>
   </div>
-	
-    <script>
-    
-	    
-	function confirmOrder() {
+
+  <script>
+    // ローカルストレージから復元
+    window.addEventListener('DOMContentLoaded', () => {
+      const inputs = document.querySelectorAll('input[type="number"]');
+      inputs.forEach(input => {
+        const name = input.dataset.name;
+        const savedValue = localStorage.getItem(name);
+        if (savedValue !== null) {
+          input.value = savedValue;
+        }
+
+        addButtons(input); // + / - / リセット ボタン追加
+        input.addEventListener('input', () => {
+          localStorage.setItem(name, input.value);
+        });
+      });
+    });
+
+    function addButtons(input) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'input-wrapper';
+
+      const plus = document.createElement('button');
+      plus.textContent = '+';
+      plus.type = 'button';
+      plus.className = 'small-btn';
+      plus.onclick = () => {
+        if (input.value < input.max) input.value++;
+        localStorage.setItem(input.dataset.name, input.value);
+      };
+
+      const minus = document.createElement('button');
+      minus.textContent = '−';
+      minus.type = 'button';
+      minus.className = 'small-btn';
+      minus.onclick = () => {
+        if (input.value > input.min) input.value--;
+        localStorage.setItem(input.dataset.name, input.value);
+      };
+
+      const reset = document.createElement('button');
+      reset.textContent = 'リセット';
+      reset.type = 'button';
+      reset.className = 'reset-btn';
+      reset.onclick = () => {
+        input.value = 0;
+        localStorage.setItem(input.dataset.name, input.value);
+      };
+
+      input.parentNode.insertBefore(wrapper, input);
+      wrapper.appendChild(input);
+      wrapper.appendChild(plus);
+      wrapper.appendChild(minus);
+      wrapper.appendChild(reset);
+    }
+
+    function confirmOrder() {
       const inputs = document.querySelectorAll('input[type="number"]');
       let popupContent = document.getElementById('popupContent');
       let list = '';
@@ -139,12 +191,7 @@
         }
       });
 
-      if (list) {
-        popupContent.innerHTML = `<ul>${list}</ul><p><strong>合計金額：${total}円</strong></p>`;
-      } else {
-        popupContent.innerHTML = "<p>商品が選択されていません。</p>";
-      }
-
+      popupContent.innerHTML = list ? `<ul>${list}</ul><p><strong>合計金額：${total}円</strong></p>` : "<p>商品が選択されていません。</p>";
       document.getElementById('overlay').style.display = 'flex';
     }
 
@@ -152,6 +199,5 @@
       document.getElementById('overlay').style.display = 'none';
     }
   </script>
-
 </body>
 </html>
