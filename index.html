@@ -284,10 +284,11 @@
     document.getElementById("overlay").style.display = "none";
   }
 
-  function submitOrder() {
+  
+<script>
+function submitOrder() {
   let data = {};
   let total = 0;
-
   document.querySelectorAll('input[type="number"]').forEach(input => {
     const name = input.dataset.name;
     const price = parseInt(input.dataset.price);
@@ -297,20 +298,19 @@
       total += count * price;
     }
   });
-
   data["合計金額"] = total;
 
-  fetch("https://script.google.com/macros/s/AKfycbzpJeg0rl4REutkCgwmzvFkKOF9pWq8wWpE3F47d5_ri3pxPluwkTCwRmSZeQRxN7kP/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbyyRwWKHZw1P4vSszZEEAqj2tp1z8iu-y_00PH1XIZaZHSLI81SzoqbUnmm7HSLs_hC/exec", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify(data)
-  }).then(res => {
-    alert("注文をスプレッドシートに送信しました！");
-    closePopup();
-  }).catch(err => {
-    alert("送信に失敗しました。");
-  });
+  })
+  .then(res => res.text())
+  .then(() => alert("注文をスプレッドシートに送信しました！"))
+  .catch(err => alert("送信に失敗しました：" + err));
 }
+</script>
+
 
         // 入力変更時に保存
   document.querySelectorAll('input[type="number"]').forEach((input) => {
