@@ -318,12 +318,12 @@
             orderData.total += qty * price;
           });
 
-          if (SCRIPT_URL === "https://script.google.com/macros/s/AKfycbwAts1Uoj3-GM427vjL5f0-Rb987OOz8r2aZWEVnsBBfZmYQTFRgB0QDL2o-T_ScTk/exec") {
+          if (SCRIPT_URL === "https://script.google.com/macros/s/AKfycby-V8mcV-S0dF2Y0Gr9PTlalPKVXPT_TohjQGezyIZHRenTeMGA7jzL0B_rgzo1I2E/exec") {
             throw new Error("SCRIPT_URLが設定されていません。Google Apps ScriptのウェブアプリURLを設定してください。");
           }
 
           console.log("スプレッドシートに送信開始", orderData);
-          const response = await fetch(https://script.google.com/macros/s/AKfycbwAts1Uoj3-GM427vjL5f0-Rb987OOz8r2aZWEVnsBBfZmYQTFRgB0QDL2o-T_ScTk/exec, {
+          const response = await fetch(https://script.google.com/macros/s/AKfycby-V8mcV-S0dF2Y0Gr9PTlalPKVXPT_TohjQGezyIZHRenTeMGA7jzL0B_rgzo1I2E/exec, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(orderData),
