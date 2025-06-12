@@ -63,8 +63,6 @@
       </div>
     </div>
 
-   
-    
     <div class="pop">
       <h2>かき氷</h2>
     </div>
@@ -187,139 +185,153 @@
       </div>
     </div>
 
-    
-<!-- ... 中略（あなたのコードの <head> 部分は変更なし） ... -->
+    <button class="order-btn" onclick="confirmOrder()">注文を確認</button>
 
-
-  <!-- ここはそのままでOK（商品リストなど） -->
-
-  <button class="order-btn" onclick="confirmOrder()">注文を確認</button>
-
-  <!-- ポップアップウィンドウ -->
-  <div class="overlay" id="overlay">
-    <div class="popup" id="popup">
-      <div id="popupContent"></div>
-      <button class="confirm-btn" onclick="submitOrder()">確定</button>
-      <button class="close-btn" onclick="closePopup()">閉じる</button>
+    <div class="overlay" id="overlay">
+      <div class="popup" id="popup">
+        <div id="popupContent"></div>
+        <button class="confirm-btn" onclick="submitOrder()">確定</button>
+        <button class="close-btn" onclick="closePopup()">閉じる</button>
+      </div>
     </div>
-  </div>
 
-  <script>
-    const STORAGE_KEY = "orderQuantities";
+    <script>
+      const STORAGE_KEY = "orderQuantities";
+      // Google Apps ScriptのウェブアプリURLをここに設定
+      const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"; // デプロイ後に取得したURLをここに貼り付け
 
-    // 初期化（保存データ復元）
-    window.addEventListener("DOMContentLoaded", () => {
-      const savedData = localStorage.getItem(STORAGE_KEY);
-      if (savedData) {
-        const quantities = JSON.parse(savedData);
+      // 初期化（保存データ復元）
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedData = localStorage.getItem(STORAGE_KEY);
+        if (savedData) {
+          const quantities = JSON.parse(savedData);
+          document.querySelectorAll('input[type="number"]').forEach((input) => {
+            const name = input.dataset.name;
+            if (quantities[name] !== undefined) {
+              input.value = quantities[name];
+            }
+          });
+        }
+      });
+
+      // 保存関数
+      function saveToStorage() {
+        const data = {};
         document.querySelectorAll('input[type="number"]').forEach((input) => {
-          const name = input.dataset.name;
-          if (quantities[name] !== undefined) {
-            input.value = quantities[name];
+          data[input.dataset.name] = Number(input.value);
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
+
+      // +, -, リセットボタン
+      document.querySelectorAll(".plus-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const input = btn.parentElement.querySelector("input");
+          input.value = Math.min(10, Number(input.value) + 1);
+          saveToStorage();
+        });
+      });
+
+      document.querySelectorAll(".minus-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const input = btn.parentElement.querySelector("input");
+          input.value = Math.max(0, Number(input.value) - 1);
+          saveToStorage();
+        });
+      });
+
+      document.querySelectorAll(".reset-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const input = btn.previousElementSibling.querySelector("input");
+          input.value = 0;
+          saveToStorage();
+        });
+      });
+
+      document.querySelectorAll('input[type="number"]').forEach((input) => {
+        input.addEventListener("input", () => {
+          if (input.value < 0) input.value = 0;
+          if (input.value > 10) input.value = 10;
+          saveToStorage();
+        });
+      });
+
+      // 注文確認
+      function confirmOrder() {
+        const items = [];
+        let total = 0;
+        document.querySelectorAll('input[type="number"]').forEach((input) => {
+          const qty = Number(input.value);
+          if (qty > 0) {
+            const name = input.dataset.name;
+            const price = Number(input.dataset.price);
+            total += qty * price;
+            items.push(`<li>${name}：${qty}個 (${qty * price}円)</li>`);
           }
         });
+
+        const popupContent = document.getElementById("popupContent");
+        if (items.length > 0) {
+          popupContent.innerHTML = `
+            <h3>注文内容の確認</h3>
+            <ul>${items.join("")}</ul>
+            <p>合計金額：<strong>${total}円</strong></p>
+          `;
+        } else {
+          popupContent.innerHTML = `<p>注文が選択されていません。</p>`;
+        }
+
+        document.getElementById("overlay").style.display = "flex";
       }
-    });
 
-    // 保存関数
-    function saveToStorage() {
-      const data = {};
-      document.querySelectorAll('input[type="number"]').forEach((input) => {
-        data[input.dataset.name] = Number(input.value);
-      });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    }
+      // スプレッドシートに送信
+      async function submitOrder() {
+        const orderData = {
+          "キャラメルポップコーン": 0,
+          "塩ポップコーン": 0,
+          "ブルーハワイかき氷": 0,
+          "いちごかき氷": 0,
+          "コーラかき氷": 0,
+          "グレープかき氷": 0,
+          "マンゴーかき氷": 0,
+          "メロンかき氷": 0,
+          total: 0
+        };
 
-    // +, -, リセットボタン
-    document.querySelectorAll(".plus-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const input = btn.parentElement.querySelector("input");
-        input.value = Math.min(10, Number(input.value) + 1);
-        saveToStorage();
-      });
-    });
-
-    document.querySelectorAll(".minus-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const input = btn.parentElement.querySelector("input");
-        input.value = Math.max(0, Number(input.value) - 1);
-        saveToStorage();
-      });
-    });
-
-    document.querySelectorAll(".reset-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const input = btn.previousElementSibling.querySelector("input");
-        input.value = 0;
-        saveToStorage();
-      });
-    });
-
-    document.querySelectorAll('input[type="number"]').forEach((input) => {
-      input.addEventListener("input", () => {
-        if (input.value < 0) input.value = 0;
-        if (input.value > 10) input.value = 10;
-        saveToStorage();
-      });
-    });
-
-    // 注文確認
-    function confirmOrder() {
-      const items = [];
-      let total = 0;
-      document.querySelectorAll('input[type="number"]').forEach((input) => {
-        const qty = Number(input.value);
-        if (qty > 0) {
+        document.querySelectorAll('input[type="number"]').forEach((input) => {
+          const qty = Number(input.value);
           const name = input.dataset.name;
           const price = Number(input.dataset.price);
-          total += qty * price;
-          items.push(`<li>${name}：${qty}個 (${qty * price}円)</li>`);
-        }
-      });
+          orderData[name] = qty;
+          orderData.total += qty * price;
+        });
 
-      const popupContent = document.getElementById("popupContent");
-      if (items.length > 0) {
-        popupContent.innerHTML = `
-          <h3>注文内容の確認</h3>
-          <ul>${items.join("")}</ul>
-          <p>合計金額：<strong>${total}円</strong></p>
-          <p style="color:red;">※この画面で「確定」は押さないでください</p>
-        `;
-      } else {
-        popupContent.innerHTML = `<p>注文が選択されていません。</p>`;
+        try {
+          const response = await fetch(https://script.google.com/macros/s/AKfycbwAts1Uoj3-GM427vjL5f0-Rb987OOz8r2aZWEVnsBBfZmYQTFRgB0QDL2o-T_ScTk/exec, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(orderData)
+          });
+          const result = await response.json();
+          if (result.status === "success") {
+            alert("注文が正常に送信されました！");
+            // 注文送信後に数量をリセット
+            document.querySelectorAll('input[type="number"]').forEach((input) => {
+              input.value = 0;
+            });
+            saveToStorage();
+            closePopup();
+          } else {
+            alert("注文の送信に失敗しました: " + result.message);
+          }
+        } catch (error) {
+          alert("エラーが発生しました: " + error.message);
+        }
       }
 
-      document.getElementById("overlay").style.display = "flex";
-    }
-
-    function closePopup() {
-      document.getElementById("overlay").style.display = "none";
-    }
-
-    // 注文送信（Google Apps Scriptへ）
-    function submitOrder() {
-      let data = {};
-      let total = 0;
-      document.querySelectorAll('input[type="number"]').forEach(input => {
-        const name = input.dataset.name;
-        const price = parseInt(input.dataset.price);
-        const count = parseInt(input.value);
-        if (count > 0) {
-          data[name] = count;
-          total += count * price;
-        }
-      });
-      data["合計金額"] = total;
-
-      fetch("https://script.google.com/macros/s/AKfycby42zdhhqfzmTI3speIT4PjMlsFhDygYUIAz3tzZFk4bUJv0ArtD4ZB7WiX_VFpUcWE/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      })
-      .then(res => res.text())
-      .then(() => alert("注文をスプレッドシートに送信しました！"))
-      .catch(err => alert("送信に失敗しました：" + err));
-    }
-  </script>
+      function closePopup() {
+        document.getElementById("overlay").style.display = "none";
+      }
+    </script>
 </body>
-
+</html>
