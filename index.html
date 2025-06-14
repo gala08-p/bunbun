@@ -1,98 +1,347 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!DOCTYPE html><html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>注文ページ</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 10px;
-    }
-    .item {
-      margin: 10px 0;
-    }
-    .btn {
-      margin-left: 5px;
-    }
-    button {
-      padding: 8px 16px;
-      margin: 5px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>文化祭</title>
+    <meta name="description" content="文化祭" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Decol&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
-  <h1>注文ページ</h1>
+    <p class="midasi">商品一覧</p>
+<div class="pop">
+  <h2>ポップコーン</h2>
+</div>
 
-  <div class="item">キャラメル: <input type="number" id="Kyarameru" value="0" min="0" max="10" /></div>
-  <div class="item">しお: <input type="number" id="Sio" value="0" min="0" max="10" /></div>
-  <div class="item">ブルーハワイ: <input type="number" id="Bru_hawai" value="0" min="0" max="10" /></div>
-  <div class="item">いちご: <input type="number" id="Itigo" value="0" min="0" max="10" /></div>
-  <div class="item">コーラ: <input type="number" id="Ko_ra" value="0" min="0" max="10" /></div>
-  <div class="item">グレープ: <input type="number" id="Gure_pu" value="0" min="0" max="10" /></div>
-  <div class="item">マンゴー: <input type="number" id="Mango" value="0" min="0" max="10" /></div>
-  <div class="item">マロン: <input type="number" id="Mron" value="0" min="0" max="10" /></div>
+<div class="menu">
+  <div class="pops">
+    <p>キャラメル</p>
+    <img src="キャラメル.jpg" class="pic_pop" />
+    <p>400円</p>
+    <div class="quantity-container">
+      <button type="button" class="quantity-btn minus-btn">−</button>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        max="10"
+        data-name="キャラメルポップコーン"
+        data-price="400"
+      />
+      <button type="button" class="quantity-btn plus-btn">＋</button>
+    </div>
+    <button type="button" class="reset-btn">リセット</button>
+  </div>
+</div>
 
-  <button onclick="confirmOrder()">注文確認</button>
+<div class="menu">
+  <div class="pops">
+    <p>塩</p>
+    <img src="ソルト.jpg" class="pic_pop" />
+    <p>400円</p>
+    <div class="quantity-container">
+      <button type="button" class="quantity-btn minus-btn">−</button>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        max="10"
+        data-name="塩ポップコーン"
+        data-price="400"
+      />
+      <button type="button" class="quantity-btn plus-btn">＋</button>
+    </div>
+    <button type="button" class="reset-btn">リセット</button>
+  </div>
+</div>
+<div class="pop">
+  <h2>かき氷</h2>
+</div>
+
+<div class="menu">
+  <div class="kakis">
+    <p>ブルーハワイ</p>
+    <img src="ブルーハワイ.jpg" class="pic_pan" />
+    <p>400円</p>
+    <div class="quantity-container">
+      <button type="button" class="quantity-btn minus-btn">−</button>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        max="10"
+        data-name="ブルーハワイかき氷"
+        data-price="400"
+      />
+      <button type="button" class="quantity-btn plus-btn">＋</button>
+    </div>
+    <button type="button" class="reset-btn">リセット</button>
+  </div>
+
+  <div class="pans">
+    <p>いちご</p>
+    <img src="イチゴ.jpg" class="pic_pop" />
+    <p>400円</p>
+    <div class="quantity-container">
+      <button type="button" class="quantity-btn minus-btn">−</button>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        max="10"
+        data-name="いちごかき氷"
+        data-price="400"
+      />
+      <button type="button" class="quantity-btn plus-btn">＋</button>
+    </div>
+    <button type="button" class="reset-btn">リセット</button>
+  </div>
+
+  <div class="pans">
+    <p>コーラ</p>
+    <img src="コーラ.jpg" class="pic_pop" />
+    <p>400円</p>
+    <div class="quantity-container">
+      <button type="button" class="quantity-btn minus-btn">−</button>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        max="10"
+        data-name="コーラかき氷"
+        data-price="400"
+      />
+      <button type="button" class="quantity-btn plus-btn">＋</button>
+    </div>
+    <button type="button" class="reset-btn">リセット</button>
+  </div>
+</div>
+
+<div class="menu">
+  <div class="kakis">
+    <p>グレープ</p>
+    <img src="グレープ.jpg" class="pic_pan" />
+    <p>400円</p>
+    <div class="quantity-container">
+      <button type="button" class="quantity-btn minus-btn">−</button>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        max="10"
+        data-name="グレープかき氷"
+        data-price="400"
+      />
+      <button type="button" class="quantity-btn plus-btn">＋</button>
+    </div>
+    <button type="button" class="reset-btn">リセット</button>
+  </div>
+
+  <div class="pans">
+    <p>マンゴー</p>
+    <img src="マンゴー.jpg" class="pic_pop" />
+    <p>400円</p>
+    <div class="quantity-container">
+      <button type="button" class="quantity-btn minus-btn">−</button>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        max="10"
+        data-name="マンゴーかき氷"
+        data-price="400"
+      />
+      <button type="button" class="quantity-btn plus-btn">＋</button>
+    </div>
+    <button type="button" class="reset-btn">リセット</button>
+  </div>
+
+  <div class="pans">
+    <p>メロン</p>
+    <img src="メロン.jpg" class="pic_pop" />
+    <p>400円</p>
+    <div class="quantity-container">
+      <button type="button" class="quantity-btn minus-btn">−</button>
+      <input
+        type="number"
+        min="0"
+        value="0"
+        max="10"
+        data-name="メロンかき氷"
+        data-price="400"
+      />
+      <button type="button" class="quantity-btn plus-btn">＋</button>
+    </div>
+    <button type="button" class="reset-btn">リセット</button>
+  </div>
+</div>
+
+<!-- ... 中略（あなたのコードの <head> 部分は変更なし） ... -->
+  <!-- ここはそのままでOK（商品リストなど） -->
+
+  <button class="order-btn" onclick="confirmOrder()">注文を確認</button>  <!-- ポップアップウィンドウ -->
+  <div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+      <div id="popupContent"></div>
+      <button class="confirm-btn" onclick="submitOrder()">確定</button>
+      <button class="close-btn" onclick="closePopup()">閉じる</button>
+    </div>
+  </div>
 
   <script>
-    function confirmOrder() {
-      const items = ["Kyarameru", "Sio", "Bru_hawai", "Itigo", "Ko_ra", "Gure_pu", "Mango", "Mron"];
-      let data = {};
-      let sum = 0;
+    const STORAGE_KEY = "orderQuantities";
 
-      items.forEach(id => {
-        const val = parseInt(document.getElementById(id).value) || 0;
-        data[id] = val;
-        sum += val * 100; // 単価100円（必要に応じて変更）
-      });
-
-      const message = items.map(id => `${id}: ${data[id]}`).join("\n") + `\n合計金額: ${sum}円`;
-
-      if (confirm(message + "\n\nこの内容で送信しますか？")) {
-        sendToBaserow(data, sum);
+    // 初期化（保存データ復元）
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedData = localStorage.getItem(STORAGE_KEY);
+      if (savedData) {
+        const quantities = JSON.parse(savedData);
+        document.querySelectorAll('input[type="number"]').forEach((input) => {
+          const name = input.dataset.name;
+          if (quantities[name] !== undefined) {
+            input.value = quantities[name];
+          }
+        });
       }
+    });
+
+    // 保存関数
+    function saveToStorage() {
+      const data = {};
+      document.querySelectorAll('input[type="number"]').forEach((input) => {
+        data[input.dataset.name] = Number(input.value);
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     }
 
-    function sendToBaserow(data, sum) {
-      const url = "https://api.baserow.io/api/database/rows/table/573706/"; // ← ご自身のテーブルURLに置換
-      const token = "lMENlhh1Gljldo3b9iIqeV1TEz4OaDM0"; // ← ご自身のAPIトークンに置換
+    // +, -, リセットボタン
+    document.querySelectorAll(".plus-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const input = btn.parentElement.querySelector("input");
+        input.value = Math.min(10, Number(input.value) + 1);
+        saveToStorage();
+      });
+    });
 
-      const now = new Date();
-      const formattedDate = now.toLocaleString("ja-JP", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit"
+    document.querySelectorAll(".minus-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const input = btn.parentElement.querySelector("input");
+        input.value = Math.max(0, Number(input.value) - 1);
+        saveToStorage();
+      });
+    });
+
+    document.querySelectorAll(".reset-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const input = btn.previousElementSibling.querySelector("input");
+        input.value = 0;
+        saveToStorage();
+      });
+    });
+
+    document.querySelectorAll('input[type="number"]').forEach((input) => {
+      input.addEventListener("input", () => {
+        if (input.value < 0) input.value = 0;
+        if (input.value > 10) input.value = 10;
+        saveToStorage();
+      });
+    });
+
+    // 注文確認
+    function confirmOrder() {
+      const items = [];
+      let total = 0;
+      document.querySelectorAll('input[type="number"]').forEach((input) => {
+        const qty = Number(input.value);
+        if (qty > 0) {
+          const name = input.dataset.name;
+          const price = Number(input.dataset.price);
+          total += qty * price;
+          items.push(<li>${name}：${qty}個 (${qty * price}円)</li>);
+        }
       });
 
-      const body = {
-        ...data,
-        Goukei: sum,
-        Nitiji: formattedDate
-      };
+      const popupContent = document.getElementById("popupContent");
+      if (items.length > 0) {
+        popupContent.innerHTML = 
+          <h3>注文内容の確認</h3>
+          <ul>${items.join("")}</ul>
+          <p>合計金額：<strong>${total}円</strong></p>
+          <p style="color:red;">※この画面で「確定」は押さないでください</p>
+        ;
+      } else {
+        popupContent.innerHTML = <p>注文が選択されていません。</p>;
+      }
 
-　　　　　　　　　　　　console.log(JSON.stringify(body));
-
-      console.log("送信データ:", body);  // ←追加
- 　　　　　　　　 console.log("送信先URL:", url);    // ←追加
-　　　　　　　　　　　　
-      fetch(url, {
-        method: "POST",
-        headers: {
-          Authorization: `Token ${token}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
-      })
-      .then(response => {
-        if (!response.ok) throw new Error("送信失敗");
-        return response.json();
-      })
-      .then(() => alert("注文を送信しました！"))
-      .catch(error => alert("エラーが発生しました: " + error));
+      document.getElementById("overlay").style.display = "flex";
     }
+
+    function closePopup() {
+      document.getElementById("overlay").style.display = "none";
+    }
+const BASEROW_API = "https://api.baserow.io/api/database/rows/table/573706/";
+const BASEROW_TOKEN = "lMENlhh1Gljldo3b9iIqeV1TEz4OaDM0";
+
+function submitOrder() {
+  const now = new Date();
+  const nitji = now.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
+  const items = {};
+  let total = 0;
+
+  document.querySelectorAll('input[type="number"]').forEach(input => {
+    const key = input.dataset.name;
+    const qty = Number(input.value);
+    if (qty > 0) {
+      const col = mapNameToColumn(key);
+      items[col] = qty;
+      total += qty * Number(input.dataset.price);
+    }
+  });
+  items["Goukei"] = total;
+  items["Nitji"] = nitji;
+  
+  // 自動ナンバリングは空白。Baserow のオート番号列が振ってくれます。
+  // items["Number"] = null;
+
+  fetch(BASEROW_API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${BASEROW_TOKEN}`,
+    },
+    body: JSON.stringify(items)
+  })
+  .then(res => {
+    if (!res.ok) throw new Error(`Error: ${res.status}`);
+    closePopup();
+    alert("注文が確定し、Baserow に送信されました！");
+  })
+  .catch(err => {
+    console.error(err);
+    alert("送信中にエラーが発生しました。");
+  });
+}
+
+function mapNameToColumn(name) {
+  const mapping = {
+    "キャラメルポップコーン": "Kyarameru",
+    "塩ポップコーン": "Sio",
+    "ブルーハワイかき氷": "Bru_hawai",
+    "いちごかき氷": "Itigo",
+    "コーラかき氷": "Ko_ra",
+    "グレープかき氷": "Gure_pu",
+    "マンゴーかき氷": "Mango",
+    "メロンかき氷": "Meron"
+  };
+  return mapping[name] || "";
+}
+
+
   </script>
 </body>
-</html>
