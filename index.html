@@ -194,7 +194,7 @@
 
     <script>
         // Google Apps ScriptのWebアプリURL
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbw6Seaj02NXGzy7oJcskZPLEOiY9qIimRR44hQhQlW-kAVCW2Jajyq-j0sGDMoXTA0/exec'; // 例: https://script.google.com/macros/s/AKfyc.../exec
+        const scriptUrl = 'YOUR_APPS_SCRIPT_URL'; // 例: https://script.google.com/macros/s/AKfyc.../exec
 
         // 初期化（保存データ復元）
         window.addEventListener('DOMContentLoaded', () => {
@@ -317,15 +317,18 @@
             });
 
             orderData.total = total;
+            console.log('送信データ:', orderData); // デバッグログ
 
             try {
                 const response = await fetch(scriptUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(orderData),
-                    mode: 'no-cors'
+                    mode: 'cors' // CORSモード
                 });
+                console.log('レスポンスステータス:', response.status); // デバッグログ
                 const result = await response.json();
+                console.log('レスポンスデータ:', result); // デバッグログ
                 if (result.status === 'success') {
                     alert('注文が送信されました！');
                     closePopup();
@@ -334,7 +337,7 @@
                     });
                     saveToStorage();
                 } else {
-                    throw new Error(result.message);
+                    throw new Error(result.message || '不明なエラー');
                 }
             } catch (error) {
                 console.error('送信エラー:', error.message);
