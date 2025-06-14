@@ -1,131 +1,90 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>注文ページ</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>注文フォーム</title>
+  <style>
+    body { font-family: sans-serif; }
+    .item { margin: 10px 0; }
+    .item-name { display: inline-block; width: 120px; }
+    .controls { display: inline-block; }
+    input[type="number"] { width: 40px; text-align: center; }
+    button { width: 25px; }
+  </style>
 </head>
 <body>
+  <h1>注文フォーム</h1>
 
-<h2>注文フォーム</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>商品</th>
-      <th>価格</th>
-      <th>数量</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>キャラメルポップコーン</td><td>300</td>
-      <td><input type="number" data-name="キャラメルポップコーン" data-price="300" value="0" min="0" max="10"></td></tr>
-    <tr><td>塩ポップコーン</td><td>300</td>
-      <td><input type="number" data-name="塩ポップコーン" data-price="300" value="0" min="0" max="10"></td></tr>
-    <tr><td>ブルーハワイかき氷</td><td>200</td>
-      <td><input type="number" data-name="ブルーハワイかき氷" data-price="200" value="0" min="0" max="10"></td></tr>
-    <tr><td>いちごかき氷</td><td>200</td>
-      <td><input type="number" data-name="いちごかき氷" data-price="200" value="0" min="0" max="10"></td></tr>
-    <tr><td>コーラかき氷</td><td>200</td>
-      <td><input type="number" data-name="コーラかき氷" data-price="200" value="0" min="0" max="10"></td></tr>
-    <tr><td>グレープかき氷</td><td>200</td>
-      <td><input type="number" data-name="グレープかき氷" data-price="200" value="0" min="0" max="10"></td></tr>
-    <tr><td>マンゴーかき氷</td><td>200</td>
-      <td><input type="number" data-name="マンゴーかき氷" data-price="200" value="0" min="0" max="10"></td></tr>
-    <tr><td>メロンかき氷</td><td>200</td>
-      <td><input type="number" data-name="メロンかき氷" data-price="200" value="0" min="0" max="10"></td></tr>
-  </tbody>
-</table>
-
-<div style="text-align:center;">
-  <button onclick="showPopup()">注文を確認</button>
-</div>
-
-<!-- 備考欄 -->
-<div style="margin-top: 20px; text-align: center;">
-  <label for="note">備考：</label><br />
-  <textarea id="note" rows="3" style="width: 90%; max-width: 500px;"></textarea>
-</div>
-
-<!-- ポップアップ -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <h3>注文内容を確認</h3>
-    <div id="order-summary"></div>
-    <p id="total-price"></p>
-    <button onclick="submitOrder()">確定</button>
-    <button onclick="closePopup()">キャンセル</button>
+  <div id="order-form">
+    <div class="item"><span class="item-name">キャラメル</span><div class="controls"><button onclick="updateCount('Kyarameru', -1)">−</button><input type="number" id="Kyarameru" value="0" min="0" max="10"><button onclick="updateCount('Kyarameru', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">しお</span><div class="controls"><button onclick="updateCount('Sio', -1)">−</button><input type="number" id="Sio" value="0" min="0" max="10"><button onclick="updateCount('Sio', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">ブルーハワイ</span><div class="controls"><button onclick="updateCount('Bru-hawai', -1)">−</button><input type="number" id="Bru-hawai" value="0" min="0" max="10"><button onclick="updateCount('Bru-hawai', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">いちご</span><div class="controls"><button onclick="updateCount('Itigo', -1)">−</button><input type="number" id="Itigo" value="0" min="0" max="10"><button onclick="updateCount('Itigo', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">コーラ</span><div class="controls"><button onclick="updateCount('Ko-ra', -1)">−</button><input type="number" id="Ko-ra" value="0" min="0" max="10"><button onclick="updateCount('Ko-ra', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">グレープ</span><div class="controls"><button onclick="updateCount('Gure-pu', -1)">−</button><input type="number" id="Gure-pu" value="0" min="0" max="10"><button onclick="updateCount('Gure-pu', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">マンゴー</span><div class="controls"><button onclick="updateCount('Mango', -1)">−</button><input type="number" id="Mango" value="0" min="0" max="10"><button onclick="updateCount('Mango', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">マロン</span><div class="controls"><button onclick="updateCount('Mron', -1)">−</button><input type="number" id="Mron" value="0" min="0" max="10"><button onclick="updateCount('Mron', 1)">＋</button></div></div>
   </div>
-</div>
 
-<script>
-  function showPopup() {
-    const inputs = document.querySelectorAll('input[type="number"]');
-    let summary = "";
-    let total = 0;
+  <button onclick="confirmOrder()">注文確認</button>
 
-    inputs.forEach(input => {
-      const name = input.dataset.name;
-      const qty = Number(input.value);
-      const price = Number(input.dataset.price);
-      if (qty > 0) {
-        summary += `${name}：${qty}個（${qty * price}円）<br>`;
-        total += qty * price;
-      }
-    });
+  <script>
+    function updateCount(id, delta) {
+      const input = document.getElementById(id);
+      let value = parseInt(input.value) || 0;
+      value = Math.min(10, Math.max(0, value + delta));
+      input.value = value;
+      localStorage.setItem(id, value);
+    }
 
-    document.getElementById("order-summary").innerHTML = summary || "なし";
-    document.getElementById("total-price").innerText = `合計：${total}円`;
-    document.getElementById("popup").style.display = "flex";
-  }
+    function loadSavedCounts() {
+      ["Kyarameru", "Sio", "Bru-hawai", "Itigo", "Ko-ra", "Gure-pu", "Mango", "Mron"].forEach(id => {
+        const saved = localStorage.getItem(id);
+        if (saved !== null) document.getElementById(id).value = saved;
+      });
+    }
 
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
+    function confirmOrder() {
+      if (!confirm("この内容で送信しますか？")) return;
 
-  async function submitOrder() {
-    const inputs = document.querySelectorAll('input[type="number"]');
-    const orderData = {};
-    let total = 0;
+      const data = {
+        "Kyarameru": parseInt(document.getElementById("Kyarameru").value),
+        "Sio": parseInt(document.getElementById("Sio").value),
+        "Bru-hawai": parseInt(document.getElementById("Bru-hawai").value),
+        "Itigo": parseInt(document.getElementById("Itigo").value),
+        "Ko-ra": parseInt(document.getElementById("Ko-ra").value),
+        "Gure-pu": parseInt(document.getElementById("Gure-pu").value),
+        "Mango": parseInt(document.getElementById("Mango").value),
+        "Mron": parseInt(document.getElementById("Mron").value),
+        "Goukei": calculateTotal(),
+      };
 
-    inputs.forEach(input => {
-      const name = input.dataset.name;
-      const qty = Number(input.value);
-      const price = Number(input.dataset.price);
-      orderData[name] = qty;
-      total += qty * price;
-    });
-
-    orderData["合計金額"] = total;
-    orderData["備考"] = document.getElementById("note").value;
-
-    // Baserow API設定
-    const BASEROW_API_URL = 'https://api.baserow.io/api/database/rows/table/573587/?user_field_names=true';
-    const BASEROW_API_TOKEN = 'IV3Llfh0X29k8dLyieIDVRHD8XWsdgQe';
-
-    try {
-      const res = await fetch(BASEROW_API_URL, {
+      fetch("https://api.baserow.io/api/database/rows/table/<YOUR_TABLE_ID>/?user_field_names=true", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Token ${BASEROW_API_TOKEN}`
+          "Authorization": "Token <YOUR_API_TOKEN>"
         },
-        body: JSON.stringify(orderData)
-      });
-
-      if (!res.ok) {
-        alert("送信に失敗しました。");
-      } else {
-        alert("注文を送信しました！");
-        closePopup();
-      }
-    } catch (err) {
-      console.error(err);
-      alert("ネットワークエラーです。");
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(json => alert("注文が送信されました。"))
+      .catch(err => alert("エラーが発生しました: " + err));
     }
-  }
-</script>
 
+    function calculateTotal() {
+      const ids = ["Kyarameru", "Sio", "Bru-hawai", "Itigo", "Ko-ra", "Gure-pu", "Mango", "Mron"];
+      let total = 0;
+      ids.forEach(id => {
+        const count = parseInt(document.getElementById(id).value);
+        total += isNaN(count) ? 0 : count * 100; // 例: 各商品100円
+      });
+      return total;
+    }
+
+    window.onload = loadSavedCounts;
+  </script>
 </body>
 </html>
 
