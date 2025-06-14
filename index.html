@@ -18,13 +18,13 @@
 
   <div id="order-form">
     <div class="item"><span class="item-name">キャラメル</span><div class="controls"><button onclick="updateCount('Kyarameru', -1)">−</button><input type="number" id="Kyarameru" value="0" min="0" max="10"><button onclick="updateCount('Kyarameru', 1)">＋</button></div></div>
-    <div class="item"><span class="item-name">しお</span><div class="controls"><button onclick="updateCount('Sio', -1)">−</button><input type="number" id="Sio" value="0" min="0" max="10"><button onclick="updateCount('Sio', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">塩</span><div class="controls"><button onclick="updateCount('Sio', -1)">−</button><input type="number" id="Sio" value="0" min="0" max="10"><button onclick="updateCount('Sio', 1)">＋</button></div></div>
     <div class="item"><span class="item-name">ブルーハワイ</span><div class="controls"><button onclick="updateCount('Bru-hawai', -1)">−</button><input type="number" id="Bru-hawai" value="0" min="0" max="10"><button onclick="updateCount('Bru-hawai', 1)">＋</button></div></div>
     <div class="item"><span class="item-name">いちご</span><div class="controls"><button onclick="updateCount('Itigo', -1)">−</button><input type="number" id="Itigo" value="0" min="0" max="10"><button onclick="updateCount('Itigo', 1)">＋</button></div></div>
     <div class="item"><span class="item-name">コーラ</span><div class="controls"><button onclick="updateCount('Ko-ra', -1)">−</button><input type="number" id="Ko-ra" value="0" min="0" max="10"><button onclick="updateCount('Ko-ra', 1)">＋</button></div></div>
     <div class="item"><span class="item-name">グレープ</span><div class="controls"><button onclick="updateCount('Gure-pu', -1)">−</button><input type="number" id="Gure-pu" value="0" min="0" max="10"><button onclick="updateCount('Gure-pu', 1)">＋</button></div></div>
     <div class="item"><span class="item-name">マンゴー</span><div class="controls"><button onclick="updateCount('Mango', -1)">−</button><input type="number" id="Mango" value="0" min="0" max="10"><button onclick="updateCount('Mango', 1)">＋</button></div></div>
-    <div class="item"><span class="item-name">マロン</span><div class="controls"><button onclick="updateCount('Mron', -1)">−</button><input type="number" id="Mron" value="0" min="0" max="10"><button onclick="updateCount('Mron', 1)">＋</button></div></div>
+    <div class="item"><span class="item-name">メロン</span><div class="controls"><button onclick="updateCount('Meron', -1)">−</button><input type="number" id="Mron" value="0" min="0" max="10"><button onclick="updateCount('Meron', 1)">＋</button></div></div>
   </div>
 
   <button onclick="confirmOrder()">注文確認</button>
@@ -39,7 +39,7 @@
     }
 
     function loadSavedCounts() {
-      ["Kyarameru", "Sio", "Bru-hawai", "Itigo", "Ko-ra", "Gure-pu", "Mango", "Mron"].forEach(id => {
+      ["Kyarameru", "Sio", "Bru-hawai", "Itigo", "Ko-ra", "Gure-pu", "Mango", "Meron"].forEach(id => {
         const saved = localStorage.getItem(id);
         if (saved !== null) document.getElementById(id).value = saved;
       });
@@ -56,7 +56,7 @@
         "Ko-ra": parseInt(document.getElementById("Ko-ra").value),
         "Gure-pu": parseInt(document.getElementById("Gure-pu").value),
         "Mango": parseInt(document.getElementById("Mango").value),
-        "Mron": parseInt(document.getElementById("Mron").value),
+        "Mron": parseInt(document.getElementById("Meron").value),
         "Goukei": calculateTotal(),
       };
 
@@ -74,7 +74,7 @@
     }
 
     function calculateTotal() {
-      const ids = ["Kyarameru", "Sio", "Bru-hawai", "Itigo", "Ko-ra", "Gure-pu", "Mango", "Mron"];
+      const ids = ["Kyarameru", "Sio", "Bru-hawai", "Itigo", "Ko-ra", "Gure-pu", "Mango", "Meron"];
       let total = 0;
       ids.forEach(id => {
         const count = parseInt(document.getElementById(id).value);
