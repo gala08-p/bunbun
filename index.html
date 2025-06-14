@@ -314,8 +314,8 @@
       return;
     }
 
-    items[mapping["Goukei"]] = total;
-    items[mapping["Nitji"]] = nitji;
+    items["Goukei"] = total;
+    items["Nitji"] = nitji;
 
     fetch(BASEROW_API, {
       method: "POST",
@@ -346,13 +346,7 @@
       "グレープかき氷": "field_4614816",
       "マンゴーかき氷": "field_4614817",
       "メロンかき氷": "field_4614818"
-    　　　　"Goukei": "field_4614819",  // 仮に4614819なら
-  　　　　　　　　"Nitji": "field_4614820"
     };
     return mapping[name] || "";
   }
 </script>
-
-
- 
-</body>
