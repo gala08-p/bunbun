@@ -194,7 +194,7 @@
 
     <script>
         // Google Apps ScriptのWebアプリURL
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbyE4NJX8fIYzBxncUVaK4DsxliA-qinX4YjZSCF-UttKmpKwTdSzqkOtXhGvMSaFQ/exec'; // 例: https://script.google.com/macros/s/AKfyc.../exec
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbw6Seaj02NXGzy7oJcskZPLEOiY9qIimRR44hQhQlW-kAVCW2Jajyq-j0sGDMoXTA0/exec'; // 例: https://script.google.com/macros/s/AKfyc.../exec
 
         // 初期化（保存データ復元）
         window.addEventListener('DOMContentLoaded', () => {
@@ -323,7 +323,7 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(orderData),
-                    mode: 'cors'
+                    mode: 'no-cors'
                 });
                 const result = await response.json();
                 if (result.status === 'success') {
