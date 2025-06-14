@@ -73,6 +73,11 @@
         Nitiji: formattedDate
       };
 
+　　　　　　　　　　　　console.log(JSON.stringify(body));
+
+      console.log("送信データ:", body);  // ←追加
+ 　　　　　　　　 console.log("送信先URL:", url);    // ←追加
+　　　　　　　　　　　　
       fetch(url, {
         method: "POST",
         headers: {
