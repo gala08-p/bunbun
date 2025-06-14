@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>注文ページ</title>
   <style>
-    /* 元のデザインを保ったまま最小限のスタイル */
-    .item { margin: 10px 0; }
-    .btn { margin-left: 5px; }
+    body {
+      font-family: sans-serif;
+      padding: 10px;
+    }
+    .item {
+      margin: 10px 0;
+    }
+    .btn {
+      margin-left: 5px;
+    }
+    button {
+      padding: 8px 16px;
+      margin: 5px;
+    }
   </style>
 </head>
 <body>
@@ -15,10 +26,10 @@
 
   <div class="item">キャラメル: <input type="number" id="Kyarameru" value="0" min="0" max="10" /></div>
   <div class="item">しお: <input type="number" id="Sio" value="0" min="0" max="10" /></div>
-  <div class="item">ブルーハワイ: <input type="number" id="Bru-hawai" value="0" min="0" max="10" /></div>
+  <div class="item">ブルーハワイ: <input type="number" id="Bru_hawai" value="0" min="0" max="10" /></div>
   <div class="item">いちご: <input type="number" id="Itigo" value="0" min="0" max="10" /></div>
-  <div class="item">コーラ: <input type="number" id="Ko-ra" value="0" min="0" max="10" /></div>
-  <div class="item">グレープ: <input type="number" id="Gure-pu" value="0" min="0" max="10" /></div>
+  <div class="item">コーラ: <input type="number" id="Ko_ra" value="0" min="0" max="10" /></div>
+  <div class="item">グレープ: <input type="number" id="Gure_pu" value="0" min="0" max="10" /></div>
   <div class="item">マンゴー: <input type="number" id="Mango" value="0" min="0" max="10" /></div>
   <div class="item">マロン: <input type="number" id="Mron" value="0" min="0" max="10" /></div>
 
@@ -26,14 +37,14 @@
 
   <script>
     function confirmOrder() {
-      const items = ["Kyarameru", "Sio", "Bru-hawai", "Itigo", "Ko-ra", "Gure-pu", "Mango", "Mron"];
+      const items = ["Kyarameru", "Sio", "Bru_hawai", "Itigo", "Ko_ra", "Gure_pu", "Mango", "Mron"];
       let data = {};
       let sum = 0;
 
       items.forEach(id => {
         const val = parseInt(document.getElementById(id).value) || 0;
         data[id] = val;
-        sum += val * 100; // 単価100円の場合、適宜調整
+        sum += val * 100; // 単価100円（必要に応じて変更）
       });
 
       const message = items.map(id => `${id}: ${data[id]}`).join("\n") + `\n合計金額: ${sum}円`;
@@ -44,8 +55,8 @@
     }
 
     function sendToBaserow(data, sum) {
-      const url = "https://api.baserow.io/api/database/rows/table/573706/"; // ← テーブルIDをあなたのものに置換
-      const token = "lMENlhh1Gljldo3b9iIqeV1TEz4OaDM0"; // ← あなたのAPIトークンに置換
+      const url = "https://api.baserow.io/api/database/rows/table/573706/"; // ← ご自身のテーブルURLに置換
+      const token = "lMENlhh1Gljldo3b9iIqeV1TEz4OaDM0"; // ← ご自身のAPIトークンに置換
 
       const now = new Date();
       const formattedDate = now.toLocaleString("ja-JP", {
@@ -60,7 +71,6 @@
         ...data,
         Goukei: sum,
         Nitiji: formattedDate
-        // Number は Baserow の自動インクリメントに任せる
       };
 
       fetch(url, {
@@ -71,15 +81,13 @@
         },
         body: JSON.stringify(body)
       })
-        .then(response => {
-          if (!response.ok) throw new Error("送信失敗");
-          return response.json();
-        })
-        .then(data => alert("注文を送信しました！"))
-        .catch(error => alert("エラーが発生しました: " + error));
+      .then(response => {
+        if (!response.ok) throw new Error("送信失敗");
+        return response.json();
+      })
+      .then(() => alert("注文を送信しました！"))
+      .catch(error => alert("エラーが発生しました: " + error));
     }
   </script>
 </body>
 </html>
-
-
