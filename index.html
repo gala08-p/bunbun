@@ -18,7 +18,7 @@
 <div class="pop">
   <h2>ポップコーン</h2>
 </div>
-
+<!--
 <div class="menu">
   <div class="pops">
     <p>キャラメル</p>
@@ -39,7 +39,7 @@
     <button type="button" class="reset-btn">リセット</button>
   </div>
 </div>
-
+-->
 <div class="menu">
   <div class="pops">
     <p>塩</p>
@@ -47,18 +47,22 @@
     <p>400円</p>
     <div class="quantity-container">
       <button type="button" class="quantity-btn minus-btn">−</button>
-      <input
+      <!--
+        <input
         type="number"
         min="0"
         value="0"
         max="10"
+        -->
         data-name="塩ポップコーン"
-        data-price="400"
+        data-price="100"
       />
-      <button type="button" class="quantity-btn plus-btn">＋</button>
+      <!--
+        <button type="button" class="quantity-btn plus-btn">＋</button>
     </div>
     <button type="button" class="reset-btn">リセット</button>
-  </div>
+  -->
+    </div>
 </div>
 <div class="pop">
   <h2>かき氷</h2>
@@ -68,14 +72,16 @@
   <div class="kakis">
     <p>ブルーハワイ</p>
     <img src="ブルーハワイ.jpg" class="pic_pan" />
-    <p>400円</p>
+    <p>150円</p>
     <div class="quantity-container">
       <button type="button" class="quantity-btn minus-btn">−</button>
-      <input
+       <!--
+        <input
         type="number"
         min="0"
         value="0"
         max="10"
+        -->
         data-name="ブルーハワイかき氷"
         data-price="400"
       />
@@ -87,14 +93,16 @@
   <div class="pans">
     <p>いちご</p>
     <img src="イチゴ.jpg" class="pic_pop" />
-    <p>400円</p>
+    <p>150円</p>
     <div class="quantity-container">
       <button type="button" class="quantity-btn minus-btn">−</button>
-      <input
+      <!--
+        <input
         type="number"
         min="0"
         value="0"
         max="10"
+        -->
         data-name="いちごかき氷"
         data-price="400"
       />
@@ -106,14 +114,16 @@
   <div class="pans">
     <p>コーラ</p>
     <img src="コーラ.jpg" class="pic_pop" />
-    <p>400円</p>
+    <p>150円</p>
     <div class="quantity-container">
       <button type="button" class="quantity-btn minus-btn">−</button>
-      <input
+      <!--
+        <input
         type="number"
         min="0"
         value="0"
         max="10"
+        -->
         data-name="コーラかき氷"
         data-price="400"
       />
@@ -125,16 +135,18 @@
 
 <div class="menu">
   <div class="kakis">
-    <p>グレープ</p>
-    <img src="グレープ.jpg" class="pic_pan" />
-    <p>400円</p>
+    <p>ラムネ</p>
+    <img src="ラムネ.jpg" class="pic_pan" />
+    <p>150円</p>
     <div class="quantity-container">
       <button type="button" class="quantity-btn minus-btn">−</button>
-      <input
+      <!--
+        <input
         type="number"
         min="0"
         value="0"
         max="10"
+        -->
         data-name="グレープかき氷"
         data-price="400"
       />
@@ -146,14 +158,16 @@
   <div class="pans">
     <p>マンゴー</p>
     <img src="マンゴー.jpg" class="pic_pop" />
-    <p>400円</p>
+    <p>150円</p>
     <div class="quantity-container">
       <button type="button" class="quantity-btn minus-btn">−</button>
-      <input
+      <!--
+        <input
         type="number"
         min="0"
         value="0"
         max="10"
+        -->
         data-name="マンゴーかき氷"
         data-price="400"
       />
@@ -163,16 +177,18 @@
   </div>
 
   <div class="pans">
-    <p>メロン</p>
-    <img src="メロン.jpg" class="pic_pop" />
-    <p>400円</p>
+    <p>ピーチ</p>
+    <img src="ピーチ.jpg" class="pic_pop" />
+    <p>150円</p>
     <div class="quantity-container">
       <button type="button" class="quantity-btn minus-btn">−</button>
-      <input
+      <!--
+        <input
         type="number"
         min="0"
         value="0"
         max="10"
+        -->
         data-name="メロンかき氷"
         data-price="400"
       />
@@ -184,8 +200,8 @@
 
 <!-- ... 中略（あなたのコードの <head> 部分は変更なし） ... -->
   <!-- ここはそのままでOK（商品リストなど） -->
-
-  <button class="order-btn" onclick="confirmOrder()">注文を確認</button>  <!-- ポップアップウィンドウ -->
+    <!--
+  <button class="order-btn" onclick="confirmOrder()">注文を確認</button>
   <div class="overlay" id="overlay">
     <div class="popup" id="popup">
       <div id="popupContent"></div>
@@ -193,8 +209,9 @@
       <button class="close-btn" onclick="closePopup()">閉じる</button>
     </div>
   </div>
+-->
 
-
+<!--
  <script>
   const STORAGE_KEY = "orderQuantities";
 
@@ -348,5 +365,5 @@
       "メロンかき氷": "field_4614818"
     };
     return mapping[name] || "";
-  }
+  } -->
 </script>
